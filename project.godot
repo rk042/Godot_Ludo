@@ -10,7 +10,9 @@ config_version=5
 
 [application]
 
-config/name="Godot_Project"
+config/name="Godot_Ludo"
+config/version="0.1"
+run/main_scene="res://Levels/Level_MainGamePlay.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 
 [dotnet]
