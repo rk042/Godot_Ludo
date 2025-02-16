@@ -1,0 +1,79 @@
+[gd_scene load_steps=7 format=3 uid="uid://cmnljkkjubyya"]
+
+[ext_resource type="PackedScene" uid="uid://rnbs1qysim1j" path="res://Scenes/board_game_play.tscn" id="1_jjkav"]
+[ext_resource type="PackedScene" uid="uid://b27l66dih2e4k" path="res://Scenes/piece_blue.tscn" id="2_b38nq"]
+[ext_resource type="PackedScene" uid="uid://phtxcdgc4f8c" path="res://Scenes/piece_green.tscn" id="3_xb4th"]
+[ext_resource type="PackedScene" uid="uid://bgtr34560sceb" path="res://Scenes/piece_red.tscn" id="4_5rg30"]
+[ext_resource type="PackedScene" uid="uid://m30ihwooxrng" path="res://Scenes/piece_yellow.tscn" id="5_04ywy"]
+[ext_resource type="PackedScene" uid="uid://b8ol7tr8s2blx" path="res://Scenes/Roots/Dice_Root.tscn" id="6_bx5hx"]
+
+[node name="CoreGamplay" type="Node2D"]
+
+[node name="Board" type="Node" parent="."]
+
+[node name="board_GamePlay" parent="Board" instance=ExtResource("1_jjkav")]
+
+[node name="Pieces" type="Node" parent="."]
+
+[node name="Blue" type="Node" parent="Pieces"]
+
+[node name="Piece_blue" parent="Pieces/Blue" instance=ExtResource("2_b38nq")]
+position = Vector2(429, -660)
+
+[node name="Piece_blue2" parent="Pieces/Blue" instance=ExtResource("2_b38nq")]
+position = Vector2(653, -660)
+
+[node name="Piece_blue3" parent="Pieces/Blue" instance=ExtResource("2_b38nq")]
+position = Vector2(653, -436)
+
+[node name="Piece_blue4" parent="Pieces/Blue" instance=ExtResource("2_b38nq")]
+position = Vector2(431, -436)
+
+[node name="Yellow" type="Node" parent="Pieces"]
+
+[node name="Piece_yellow" parent="Pieces/Yellow" instance=ExtResource("5_04ywy")]
+position = Vector2(-658, -440)
+
+[node name="Piece_yellow2" parent="Pieces/Yellow" instance=ExtResource("5_04ywy")]
+position = Vector2(-434, -440)
+
+[node name="Piece_yellow3" parent="Pieces/Yellow" instance=ExtResource("5_04ywy")]
+position = Vector2(-434, -664)
+
+[node name="Piece_yellow4" parent="Pieces/Yellow" instance=ExtResource("5_04ywy")]
+position = Vector2(-661, -664)
+
+[node name="Green" type="Node" parent="Pieces"]
+
+[node name="Piece_green" parent="Pieces/Green" instance=ExtResource("3_xb4th")]
+position = Vector2(-661, 413)
+
+[node name="Piece_green2" parent="Pieces/Green" instance=ExtResource("3_xb4th")]
+position = Vector2(-434, 413)
+
+[node name="Piece_green3" parent="Pieces/Green" instance=ExtResource("3_xb4th")]
+position = Vector2(-434, 635)
+
+[node name="Piece_green4" parent="Pieces/Green" instance=ExtResource("3_xb4th")]
+position = Vector2(-658, 635)
+
+[node name="Red" type="Node" parent="Pieces"]
+
+[node name="Piece_Red" parent="Pieces/Red" instance=ExtResource("4_5rg30")]
+position = Vector2(422, 428)
+
+[node name="Piece_Red2" parent="Pieces/Red" instance=ExtResource("4_5rg30")]
+position = Vector2(644, 428)
+
+[node name="Piece_Red3" parent="Pieces/Red" instance=ExtResource("4_5rg30")]
+position = Vector2(644, 644)
+
+[node name="Piece_Red4" parent="Pieces/Red" instance=ExtResource("4_5rg30")]
+position = Vector2(422, 644)
+
+[node name="WayPoints" type="Node" parent="."]
+
+[node name="Dices" type="Node" parent="."]
+
+[node name="DiceRoot" parent="Dices" instance=ExtResource("6_bx5hx")]
+position = Vector2(0, 1172)

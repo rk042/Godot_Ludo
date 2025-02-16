@@ -1,3 +1,10 @@
-[gd_scene format=3 uid="uid://bs72hdhyevken"]
+[gd_scene load_steps=2 format=3 uid="uid://bs72hdhyevken"]
+
+[ext_resource type="PackedScene" uid="uid://cmnljkkjubyya" path="res://Scenes/Roots/Core_Gamplay_Root.tscn" id="1_hpn5y"]
 
 [node name="LevelMainGamePlay" type="Node2D"]
+
+[node name="CoreGamplay" parent="." instance=ExtResource("1_hpn5y")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.2, 0.2)

@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://rnbs1qysim1j"]
+
+[ext_resource type="PackedScene" uid="uid://mhoc337igvj5" path="res://Scenes/Roots/Board_Root.tscn" id="1_yrf8r"]
+
+[node name="board_GamePlay" instance=ExtResource("1_yrf8r")]
