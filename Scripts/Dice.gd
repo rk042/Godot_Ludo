@@ -1,12 +1,19 @@
 extends Node
 
+@onready var Maindice: Sprite2D = $Sprite2D_MainDice
+@export var DicesSpriteArray : Array[Texture2D]
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	print("Hello Ludo Project!!")
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func SetSpriteByIndex(index: int) -> void:
+	print(index)
+	Maindice.texture = DicesSpriteArray[index]
 	pass
+
+# ----------------- Testing Code ----------------------------------
+
+#func _ready() -> void:
+	#for i in range(0,DicesSpriteArray.size()):
+		#await get_tree().create_timer(2).timeout
+		#SetSpriteByIndex(i)
+		#pass
+	#pass
+	

@@ -1,10 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://b8ol7tr8s2blx"]
+[gd_scene load_steps=8 format=3 uid="uid://b8ol7tr8s2blx"]
 
 [ext_resource type="Texture2D" uid="uid://ckq6lbvndkgbt" path="res://Arts/Textures_Game/Dices/Dice_6.png" id="1_2bjlj"]
 [ext_resource type="Script" path="res://Scripts/Dice.gd" id="1_g3x1w"]
+[ext_resource type="Texture2D" uid="uid://b5khhhd4lfiar" path="res://Arts/Textures_Game/Dices/Dice_1.png" id="2_k3mrr"]
+[ext_resource type="Texture2D" uid="uid://bspww4fvm4xlo" path="res://Arts/Textures_Game/Dices/Dice_2.png" id="3_4qbjp"]
+[ext_resource type="Texture2D" uid="uid://ddpolgsaoiqpq" path="res://Arts/Textures_Game/Dices/Dice_3.png" id="4_vvv7y"]
+[ext_resource type="Texture2D" uid="uid://b12gvgv1j2tip" path="res://Arts/Textures_Game/Dices/Dice_4.png" id="5_ed5jq"]
+[ext_resource type="Texture2D" uid="uid://crla5hvhbw3ac" path="res://Arts/Textures_Game/Dices/Dice_5.png" id="6_gmmo0"]
 
 [node name="DiceRoot" type="Node2D"]
 script = ExtResource("1_g3x1w")
+DicesSpriteArray = Array[Texture2D]([ExtResource("2_k3mrr"), ExtResource("3_4qbjp"), ExtResource("4_vvv7y"), ExtResource("5_ed5jq"), ExtResource("6_gmmo0"), ExtResource("1_2bjlj")])
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D_MainDice" type="Sprite2D" parent="."]
 texture = ExtResource("1_2bjlj")
