@@ -1,9 +1,10 @@
-[gd_scene load_steps=6 format=3 uid="uid://bm2imeeg020if"]
+[gd_scene load_steps=7 format=3 uid="uid://bm2imeeg020if"]
 
 [ext_resource type="PackedScene" uid="uid://b27l66dih2e4k" path="res://Scenes/piece_blue.tscn" id="1_cvck3"]
 [ext_resource type="Script" path="res://Scenes/Roots/pieces_manager.gd" id="1_xrjd1"]
 [ext_resource type="PackedScene" uid="uid://m30ihwooxrng" path="res://Scenes/piece_yellow.tscn" id="2_qbqiu"]
 [ext_resource type="PackedScene" uid="uid://phtxcdgc4f8c" path="res://Scenes/piece_green.tscn" id="3_0y0fd"]
+[ext_resource type="Script" path="res://Scripts/piece.gd" id="3_rk4jp"]
 [ext_resource type="PackedScene" uid="uid://bgtr34560sceb" path="res://Scenes/piece_red.tscn" id="4_d4x23"]
 
 [node name="Pieces" type="Node" node_paths=PackedStringArray("BluePieces", "YelloPieces", "GreenPieces", "RedPieces")]
@@ -17,29 +18,37 @@ RedPieces = [NodePath("Red/Piece_Red"), NodePath("Red/Piece_Red2"), NodePath("Re
 
 [node name="Piece_blue" parent="Blue" instance=ExtResource("1_cvck3")]
 position = Vector2(429, -660)
+script = ExtResource("3_rk4jp")
 
 [node name="Piece_blue2" parent="Blue" instance=ExtResource("1_cvck3")]
 position = Vector2(653, -660)
+script = ExtResource("3_rk4jp")
 
 [node name="Piece_blue3" parent="Blue" instance=ExtResource("1_cvck3")]
 position = Vector2(653, -436)
+script = ExtResource("3_rk4jp")
 
 [node name="Piece_blue4" parent="Blue" instance=ExtResource("1_cvck3")]
 position = Vector2(431, -436)
+script = ExtResource("3_rk4jp")
 
 [node name="Yellow" type="Node" parent="."]
 
 [node name="Piece_yellow" parent="Yellow" instance=ExtResource("2_qbqiu")]
 position = Vector2(-658, -440)
+script = ExtResource("3_rk4jp")
 
 [node name="Piece_yellow2" parent="Yellow" instance=ExtResource("2_qbqiu")]
 position = Vector2(-434, -440)
+script = ExtResource("3_rk4jp")
 
 [node name="Piece_yellow3" parent="Yellow" instance=ExtResource("2_qbqiu")]
 position = Vector2(-434, -664)
+script = ExtResource("3_rk4jp")
 
 [node name="Piece_yellow4" parent="Yellow" instance=ExtResource("2_qbqiu")]
 position = Vector2(-661, -664)
+script = ExtResource("3_rk4jp")
 
 [node name="Green" type="Node" parent="."]
 
@@ -59,12 +68,16 @@ position = Vector2(-658, 635)
 
 [node name="Piece_Red" parent="Red" instance=ExtResource("4_d4x23")]
 position = Vector2(422, 428)
+script = ExtResource("3_rk4jp")
 
 [node name="Piece_Red2" parent="Red" instance=ExtResource("4_d4x23")]
 position = Vector2(644, 428)
+script = ExtResource("3_rk4jp")
 
 [node name="Piece_Red3" parent="Red" instance=ExtResource("4_d4x23")]
 position = Vector2(644, 644)
+script = ExtResource("3_rk4jp")
 
 [node name="Piece_Red4" parent="Red" instance=ExtResource("4_d4x23")]
 position = Vector2(422, 644)
+script = ExtResource("3_rk4jp")

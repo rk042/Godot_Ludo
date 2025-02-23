@@ -3,13 +3,27 @@ extends Node
 @export var way_points: Node
 @export var Pieces: Node
 
+var currentPlayerTurnIndex:int = 0
+
 func _on_dice_root_on_dice_rolled(value: int) -> void:
+
 	print("diceRolled! Value is ",value)
+	await get_tree().create_timer(1).timeout
 	
-	for i in range(0,value):
-		var moveThisPiece = Pieces.GetMovePiece(0)
+	var moveThisPiece = Pieces.GetMovePiece(0,currentPlayerTurnIndex)
+	value+=moveThisPiece.GetCurrentPosition()
+
+	for i in range(moveThisPiece.GetCurrentPosition(),value):
 		moveThisPiece.position = way_points.GetPositionOfThisPoint(i)
 		await get_tree().create_timer(1).timeout
+		
+	moveThisPiece.SetCurrentPosition(value)
+		
+	currentPlayerTurnIndex+=1
+	
+	if(currentPlayerTurnIndex >=4):
+		currentPlayerTurnIndex=0
+		pass
 	
 	pass # Replace with function body.
 
