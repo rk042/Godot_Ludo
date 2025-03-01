@@ -1,3 +1,5 @@
+class_name Piece
+
 extends Node2D
 
 var CurrentPosition: int = 0

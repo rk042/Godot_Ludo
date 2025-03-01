@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://phtxcdgc4f8c"]
 
 [ext_resource type="PackedScene" uid="uid://b62ipw6q3p2oe" path="res://Scenes/Roots/Piece_Root.tscn" id="1_dq6sn"]
-[ext_resource type="Script" path="res://Scripts/piece.gd" id="2_84036"]
+[ext_resource type="Script" path="res://Scripts/Piece.gd" id="2_84036"]
 [ext_resource type="Texture2D" uid="uid://b8ahd5cnu8xra" path="res://Arts/Textures_Game/Pieces/Piece_Green.png" id="2_kk07j"]
 
 [node name="Piece_green" instance=ExtResource("1_dq6sn")]

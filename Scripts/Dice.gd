@@ -1,4 +1,6 @@
-extends Node
+class_name Dice
+
+extends Node2D
 
 @export var Maindice: Sprite2D
 @export var DicesSpriteArray : Array[Texture2D]

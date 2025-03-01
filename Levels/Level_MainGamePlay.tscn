@@ -6,6 +6,7 @@
 [node name="LevelMainGamePlay" type="Node2D"]
 
 [node name="CoreGamplay" parent="." instance=ExtResource("1_hpn5y")]
+z_index = 1
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(0.2, 0.2)

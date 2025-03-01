@@ -1,4 +1,7 @@
-extends Node
+class_name WayPointsManager
+
+extends Node2D
+
 @export var main_path_for_all: Node
 @export var green_path: Node
 @export var yellow_path: Node

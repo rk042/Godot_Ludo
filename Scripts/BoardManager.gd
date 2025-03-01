@@ -1,7 +1,9 @@
-extends Node
+class_name BoardManager
 
-@export var way_points: Node
-@export var Pieces: Node
+extends Node2D
+
+@export var way_points: WayPointsManager
+@export var Pieces: PiecesManager
 
 var currentPlayerTurnIndex:int = 0
 
@@ -10,7 +12,21 @@ func _on_dice_root_on_dice_rolled(value: int) -> void:
 	print("diceRolled! Value is ",value)
 	await get_tree().create_timer(1).timeout
 	
-	var moveThisPiece = Pieces.GetMovePiece(0,currentPlayerTurnIndex)
+	# if value is 6 then user can start turn
+	if(value == 6):
+		
+		pass
+	# else skip turn
+	#
+	
+	UpdatePlayerTurn()
+	MovePieces(value) 
+	
+	
+	pass # Replace with function body.
+	
+func MovePieces(value: int) -> void:
+	var moveThisPiece = GetPieceForMove()
 	value+=moveThisPiece.GetCurrentPosition()
 
 	for i in range(moveThisPiece.GetCurrentPosition(),value):
@@ -18,16 +34,20 @@ func _on_dice_root_on_dice_rolled(value: int) -> void:
 		await get_tree().create_timer(1).timeout
 		
 	moveThisPiece.SetCurrentPosition(value)
-		
+	pass
+
+func UpdatePlayerTurn() -> void:
 	currentPlayerTurnIndex+=1
 	
 	if(currentPlayerTurnIndex >=4):
 		currentPlayerTurnIndex=0
 		pass
-	
-	pass # Replace with function body.
+	pass
 
-
+func GetPieceForMove()-> Node:
+	var piece = Pieces.GetMovePiece(0,currentPlayerTurnIndex)
+	return piece
+	pass
 # testing code for green piece move a step with 1 second tiemr.
 # Called when the node enters the scene tree for the first time.
 #func _ready() -> void:
