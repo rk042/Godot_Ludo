@@ -13,19 +13,43 @@ func _ready() -> void:
 	pass
 
 func _on_player_select_piece(value:Piece) ->void:
-	print(value.name)
-	MovePieces(currentDiceValue,value)
+	print(value.get_parent().name)
+	
+	var playerType = value.get_parent().name
+	var isPlayerTurn = IsThisPlayerTurn(playerType)
+	
+	if(isPlayerTurn):
+		MovePieces(currentDiceValue,value)
+		pass
+	else: 
+		pass
+	
+
 	pass
+	
+func IsThisPlayerTurn(playerType:String)->bool:
+	var returnValue:bool = false
+	
+	match playerType:
+		"Green":
+			returnValue = (currentPlayerTurnIndex == 0)
+			pass
+		"Yellow":
+			returnValue = (currentPlayerTurnIndex == 1)
+			pass
+		"Blue":
+			returnValue = (currentPlayerTurnIndex == 2)
+			pass
+		"Red":
+			returnValue = (currentPlayerTurnIndex == 3)
+			pass
+	
+	return returnValue
 
 func _on_dice_root_on_dice_rolled(value: int) -> void:
 	print("diceRolled! Value is ",value)
 
 	currentDiceValue = value
-
-	#await get_tree().create_timer(1).timeout
-	
-	#UpdatePlayerTurn()
-	#MovePieces(value) 
 
 	pass # Replace with function body.
 	
@@ -41,7 +65,9 @@ func MovePieces(value: int, moveThisPiece: Piece) -> void:
 	moveThisPiece.SetCurrentPosition(value)
 	
 	GameManager.GameCurrentState = GameManager.GameStateEnum.PlayerCanRollDice
-
+	
+	UpdatePlayerTurn()
+	
 	pass
 
 func UpdatePlayerTurn() -> void:
