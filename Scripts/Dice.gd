@@ -13,16 +13,26 @@ func SetSpriteByIndex(index: int) -> void:
 	pass
 	
 func RollDice() -> void:
-	var randomNumber = RandomNumberGenerator.new().randf_range(0,6)
-	AnimateDice()
-	
-	await OnDiceAniamtionComplate_Local;
-	
-	SetSpriteByIndex(randomNumber)
-	randomNumber+=1
-	
-	OnDiceRolled.emit(randomNumber)
+	#wait for player select piece to move
+	if(GameManager.GameCurrentState == GameManager.GameStateEnum.PlayerCanRollDice):
+		# change gamecurrent state to player select piece
+		GameManager.GameCurrentState = GameManager.GameStateEnum.Null
+		
+		var randomNumber = RandomNumberGenerator.new().randf_range(0,6)
+		AnimateDice()
+		
+		await OnDiceAniamtionComplate_Local;
+		
+		SetSpriteByIndex(randomNumber)
+		randomNumber+=1
+		
+		OnDiceRolled.emit(randomNumber)
+		
+		# change gamecurrent state to player select piece
+		GameManager.GameCurrentState = GameManager.GameStateEnum.PlayerSelectPiece
+		pass
 	pass
+	
 
 func _input(event: InputEvent) -> void:
 	var diceClicked = event.is_action_pressed("DiceClick")

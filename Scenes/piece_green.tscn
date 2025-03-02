@@ -4,8 +4,9 @@
 [ext_resource type="Script" path="res://Scripts/Piece.gd" id="2_84036"]
 [ext_resource type="Texture2D" uid="uid://b8ahd5cnu8xra" path="res://Arts/Textures_Game/Pieces/Piece_Green.png" id="2_kk07j"]
 
-[node name="Piece_green" instance=ExtResource("1_dq6sn")]
+[node name="Piece_green" node_paths=PackedStringArray("PieceSprite") instance=ExtResource("1_dq6sn")]
 script = ExtResource("2_84036")
+PieceSprite = NodePath("Sprite2D_Piece")
 
 [node name="Sprite2D_Piece" parent="." index="0"]
 texture = ExtResource("2_kk07j")

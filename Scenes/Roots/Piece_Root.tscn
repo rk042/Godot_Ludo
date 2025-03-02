@@ -1,5 +1,9 @@
-[gd_scene format=3 uid="uid://b62ipw6q3p2oe"]
+[gd_scene load_steps=2 format=3 uid="uid://b62ipw6q3p2oe"]
 
-[node name="PieceRoot" type="Node2D"]
+[ext_resource type="Script" path="res://Scripts/Piece.gd" id="1_ib2by"]
+
+[node name="PieceRoot" type="Node2D" node_paths=PackedStringArray("PieceSprite")]
+script = ExtResource("1_ib2by")
+PieceSprite = NodePath("Sprite2D_Piece")
 
 [node name="Sprite2D_Piece" type="Sprite2D" parent="."]
