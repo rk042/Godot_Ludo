@@ -53,7 +53,7 @@ func IsThisPlayerTurn(playerType:String)->bool:
 func _on_dice_root_on_dice_rolled(value: int) -> void:
 	print("diceRolled! Value is ",value)
 	currentDiceValue = value
-
+	animation_PlayerForPlaces.stop()
 	pass # Replace with function body.
 	
 func MovePieces(value: int, moveThisPiece: Piece) -> void:
@@ -80,6 +80,11 @@ func UpdatePlayerTurn() -> void:
 		currentPlayerTurnIndex=0
 		pass
 		
+	PlayPlaceAnimation()
+	
+	pass
+	
+func PlayPlaceAnimation()-> void:
 	match(currentPlayerTurnIndex):
 		0:
 			currentAnimationPlaceName = "GreenPlaceAnimation"

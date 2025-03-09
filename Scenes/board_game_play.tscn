@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://rnbs1qysim1j"]
+[gd_scene load_steps=12 format=3 uid="uid://rnbs1qysim1j"]
 
 [ext_resource type="PackedScene" uid="uid://mhoc337igvj5" path="res://Scenes/Roots/Board_Root.tscn" id="1_yrf8r"]
 [ext_resource type="Script" path="res://Scripts/BoardManager.gd" id="2_d30q8"]
@@ -11,62 +11,10 @@
 [ext_resource type="Animation" uid="uid://cxfyvuey6bb62" path="res://Arts/Animations/BluePlaceAnimation.res" id="6_wpv30"]
 [ext_resource type="Animation" uid="uid://crfcdginogf5t" path="res://Arts/Animations/RedPlaceAnimation.res" id="7_a0rr4"]
 
-[sub_resource type="Animation" id="Animation_ox2xx"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("../Sprite2D_Red:self_modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.5, 0.497, 0.497, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("../Sprite2D_Blue:self_modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.5, 0.5, 0.5, 1)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../Sprite2D_Green:self_modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.5, 0.5, 0.5, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".:self_modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(0.5, 0.5, 0.5, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_cdckt"]
 _data = {
 "BluePlaceAnimation": ExtResource("6_wpv30"),
 "GreenPlaceAnimation": ExtResource("5_k0ipu"),
-"RESET": SubResource("Animation_ox2xx"),
 "RedPlaceAnimation": ExtResource("7_a0rr4"),
 "YellowPlaceAnimation": ExtResource("4_ylohl")
 }
@@ -77,22 +25,18 @@ yellowPlace = NodePath("Sprite2D_Board/Sprite2D_Yellow")
 animation_PlayerForPlaces = NodePath("AnimationPlayer")
 
 [node name="Sprite2D_Green" type="Sprite2D" parent="Sprite2D_Board" index="0"]
-self_modulate = Color(0.5, 0.5, 0.5, 1)
 position = Vector2(-538, 543)
 texture = ExtResource("3_sna5g")
 
 [node name="Sprite2D_Yellow" type="Sprite2D" parent="Sprite2D_Board" index="1"]
-self_modulate = Color(0.5, 0.5, 0.5, 1)
 position = Vector2(-538, -540)
 texture = ExtResource("2_m5yd0")
 
 [node name="Sprite2D_Blue" type="Sprite2D" parent="Sprite2D_Board" index="2"]
-self_modulate = Color(0.5, 0.5, 0.5, 1)
 position = Vector2(545, -540)
 texture = ExtResource("5_3loxm")
 
 [node name="Sprite2D_Red" type="Sprite2D" parent="Sprite2D_Board" index="3"]
-self_modulate = Color(0.5, 0.497, 0.497, 1)
 position = Vector2(542, 540)
 texture = ExtResource("6_to8xc")
 
