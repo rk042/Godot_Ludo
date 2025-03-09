@@ -4,11 +4,15 @@ extends Node2D
 
 @export var way_points: WayPointsManager
 @export var Pieces: PiecesManager
+@export var yellowPlace: Sprite2D
+@export var animation_PlayerForPlaces: AnimationPlayer
 
-var currentPlayerTurnIndex:int = 0
-var currentDiceValue = -1
+var currentPlayerTurnIndex:int = -1
+var currentDiceValue:int = -1
+var currentAnimationPlaceName:String = ""
 
 func _ready() -> void:
+	UpdatePlayerTurn()
 	GameManager.OnPlayerSelectPiece.connect(_on_player_select_piece)
 	pass
 
@@ -48,7 +52,6 @@ func IsThisPlayerTurn(playerType:String)->bool:
 
 func _on_dice_root_on_dice_rolled(value: int) -> void:
 	print("diceRolled! Value is ",value)
-
 	currentDiceValue = value
 
 	pass # Replace with function body.
@@ -76,7 +79,37 @@ func UpdatePlayerTurn() -> void:
 	if(currentPlayerTurnIndex >=4):
 		currentPlayerTurnIndex=0
 		pass
+		
+	match(currentPlayerTurnIndex):
+		0:
+			currentAnimationPlaceName = "GreenPlaceAnimation"
+			pass
+		1:
+			currentAnimationPlaceName = "YellowPlaceAnimation"
+			pass
+		2: 
+			currentAnimationPlaceName = "BluePlaceAnimation"
+			pass
+		3:
+			currentAnimationPlaceName = "RedPlaceAnimation"
+			pass
+			
+	
+	animation_PlayerForPlaces.stop()
+	animation_PlayerForPlaces.play(currentAnimationPlaceName)
 	pass
+
+
+#func AnimateSprite() -> void:
+	#for i in range(0,100):
+		#yellowPlace.self_modulate = yellowPlace.self_modulate.lerp(Color.BLACK, 1/i*2)
+		#await get_tree().get_frame()
+		#pass
+	#for i in range(0,100):
+		#yellowPlace.self_modulate = yellowPlace.self_modulate.lerp(Color.WHITE, 1/i*2)
+		#await get_tree().get_tree().get_frame()
+		#pass
+	#pass
 
 #func GetPieceForMove()-> Piece:
 	#var piece = Pieces.GetMovePiece(0,currentPlayerTurnIndex)
