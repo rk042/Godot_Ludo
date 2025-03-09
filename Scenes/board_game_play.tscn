@@ -19,9 +19,8 @@ _data = {
 "YellowPlaceAnimation": ExtResource("4_ylohl")
 }
 
-[node name="board_GamePlay" node_paths=PackedStringArray("yellowPlace", "animation_PlayerForPlaces") instance=ExtResource("1_yrf8r")]
+[node name="board_GamePlay" node_paths=PackedStringArray("animation_PlayerForPlaces") instance=ExtResource("1_yrf8r")]
 script = ExtResource("2_d30q8")
-yellowPlace = NodePath("Sprite2D_Board/Sprite2D_Yellow")
 animation_PlayerForPlaces = NodePath("AnimationPlayer")
 
 [node name="Sprite2D_Green" type="Sprite2D" parent="Sprite2D_Board" index="0"]

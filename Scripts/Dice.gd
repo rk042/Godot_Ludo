@@ -7,6 +7,7 @@ extends Node2D
 
 signal OnDiceRolled(value: int)
 signal OnDiceAniamtionComplate_Local
+signal OnDiceRollBegin
 
 func SetSpriteByIndex(index: int) -> void:
 	Maindice.texture = DicesSpriteArray[index]
@@ -15,6 +16,9 @@ func SetSpriteByIndex(index: int) -> void:
 func RollDice() -> void:
 	#wait for player select piece to move
 	if(GameManager.GameCurrentState == GameManager.GameStateEnum.PlayerCanRollDice):
+		
+		OnDiceRollBegin.emit()
+		
 		# change gamecurrent state to player select piece
 		GameManager.GameCurrentState = GameManager.GameStateEnum.Null
 		

@@ -1,9 +1,52 @@
-[gd_scene load_steps=2 format=3 uid="uid://b62ipw6q3p2oe"]
+[gd_scene load_steps=5 format=3 uid="uid://b62ipw6q3p2oe"]
 
 [ext_resource type="Script" path="res://Scripts/Piece.gd" id="1_ib2by"]
 
-[node name="PieceRoot" type="Node2D" node_paths=PackedStringArray("PieceSprite")]
+[sub_resource type="Animation" id="Animation_23bfc"]
+resource_name = "PieceAnimation_Select"
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D_Piece:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(0.5, 0.5)]
+}
+
+[sub_resource type="Animation" id="Animation_uhqr6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D_Piece:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_krcar"]
+_data = {
+"PieceAnimation_Select": SubResource("Animation_23bfc"),
+"RESET": SubResource("Animation_uhqr6")
+}
+
+[node name="PieceRoot" type="Node2D" node_paths=PackedStringArray("PieceSprite", "animation_PieceSelect")]
 script = ExtResource("1_ib2by")
 PieceSprite = NodePath("Sprite2D_Piece")
+animation_PieceSelect = NodePath("AnimationPlayer")
 
 [node name="Sprite2D_Piece" type="Sprite2D" parent="."]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_krcar")
+}

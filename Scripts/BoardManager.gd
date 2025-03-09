@@ -3,8 +3,7 @@ class_name BoardManager
 extends Node2D
 
 @export var way_points: WayPointsManager
-@export var Pieces: PiecesManager
-@export var yellowPlace: Sprite2D
+@export var piecesManager: PiecesManager
 @export var animation_PlayerForPlaces: AnimationPlayer
 
 var currentPlayerTurnIndex:int = -1
@@ -19,16 +18,18 @@ func _ready() -> void:
 func _on_player_select_piece(value:Piece) ->void:
 	print(value.get_parent().name)
 	
+	#stop piece animation after player click on it
+	StopPieceAnimation()
+	
 	var playerType = value.get_parent().name
 	var isPlayerTurn = IsThisPlayerTurn(playerType)
 	
+	#check is right player turn
 	if(isPlayerTurn):
 		MovePieces(currentDiceValue,value)
 		pass
 	else: 
 		pass
-	
-
 	pass
 	
 func IsThisPlayerTurn(playerType:String)->bool:
@@ -50,41 +51,58 @@ func IsThisPlayerTurn(playerType:String)->bool:
 	
 	return returnValue
 
+func _on_dice_root_on_dice_roll_begin() -> void:
+	
+	#stop animation because player clicked on dice to start dice animation
+	animation_PlayerForPlaces.stop()
+	pass # Replace with function body.
+
 func _on_dice_root_on_dice_rolled(value: int) -> void:
 	print("diceRolled! Value is ",value)
 	currentDiceValue = value
-	animation_PlayerForPlaces.stop()
+	
+	#play piece animation because player rolled dice
+	PlayPieceAnimation()
 	pass # Replace with function body.
 	
 func MovePieces(value: int, moveThisPiece: Piece) -> void:
+	
+	#store update value based on current position otherwise piece start moving from 0 each time.
 	value+=moveThisPiece.GetCurrentPosition()
 	
+	#update game state other wise use can click on piece or dice and game will brack
 	GameManager.GameCurrentState = GameManager.GameStateEnum.Null
 	
+	#move piece step by step 1 second for 1 step
 	for i in range(moveThisPiece.GetCurrentPosition(),value):
 		moveThisPiece.position = way_points.GetPositionOfThisPoint(i)
 		await get_tree().create_timer(1).timeout
 		
+	#update current piece value to current position so next time we get frash value which we use in value
 	moveThisPiece.SetCurrentPosition(value)
 	
+	#update state so next player can roll dice
 	GameManager.GameCurrentState = GameManager.GameStateEnum.PlayerCanRollDice
 	
+	#update turn
 	UpdatePlayerTurn()
-	
 	pass
 
 func UpdatePlayerTurn() -> void:
 	currentPlayerTurnIndex+=1
 	
+	#if player index increase to 4 reset counter again.
 	if(currentPlayerTurnIndex >=4):
 		currentPlayerTurnIndex=0
 		pass
 		
+	#play place animation to suggest use it's your turn to roll dice
 	PlayPlaceAnimation()
-	
 	pass
 	
 func PlayPlaceAnimation()-> void:
+	
+	#update animation state for play right player turn place animation
 	match(currentPlayerTurnIndex):
 		0:
 			currentAnimationPlaceName = "GreenPlaceAnimation"
@@ -99,11 +117,17 @@ func PlayPlaceAnimation()-> void:
 			currentAnimationPlaceName = "RedPlaceAnimation"
 			pass
 			
-	
 	animation_PlayerForPlaces.stop()
 	animation_PlayerForPlaces.play(currentAnimationPlaceName)
 	pass
 
+func PlayPieceAnimation()-> void:
+	piecesManager.PlayAnimationByPlayerIndex(currentPlayerTurnIndex)
+	pass
+
+func StopPieceAnimation()-> void:
+	piecesManager.StopAnimation()
+	pass
 
 #func AnimateSprite() -> void:
 	#for i in range(0,100):

@@ -4,6 +4,8 @@ extends Node2D
 
 var CurrentPosition: int = 0
 @export var PieceSprite: Sprite2D
+@export var animation_PieceSelect: AnimationPlayer
+@export var isAtHome:bool = false
 
 func SetCurrentPosition(value: int)->void:
 	CurrentPosition = value
@@ -23,4 +25,13 @@ func _input(event: InputEvent) -> void:
 			GameManager.OnPlayerSelectPiece.emit(self)
 			pass
 		pass
+	pass
+
+func PlayAnimation()-> void:
+	if(!isAtHome):
+		animation_PieceSelect.play("PieceAnimation_Select")
+		pass
+	pass
+func StopAnimation()-> void:
+	animation_PieceSelect.stop()
 	pass

@@ -18,3 +18,14 @@ func GetPieceByIndex(index:int)->Piece:
 	
 	return Pieces[index]
 	pass
+
+func PlayAllPieceAnimation()->void:
+	for i in range(0,Pieces.size()):
+		Pieces[i].PlayAnimation()
+		pass
+	pass
+func StopAllPieceAnimation()->void:
+	for i in range(0,Pieces.size()):
+		Pieces[i].StopAnimation()
+		pass
+	pass
