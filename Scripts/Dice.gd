@@ -14,6 +14,7 @@ func SetSpriteByIndex(index: int) -> void:
 	pass
 	
 func RollDice() -> void:
+	print("current game state on roll dice ",GameManager.GameCurrentState)
 	#wait for player select piece to move
 	if(GameManager.GameCurrentState == GameManager.GameStateEnum.PlayerCanRollDice):
 		
@@ -29,11 +30,11 @@ func RollDice() -> void:
 		
 		SetSpriteByIndex(randomNumber)
 		randomNumber+=1
-		
-		OnDiceRolled.emit(randomNumber)
-		
+
 		# change gamecurrent state to player select piece
 		GameManager.GameCurrentState = GameManager.GameStateEnum.PlayerSelectPiece
+		
+		OnDiceRolled.emit(randomNumber)
 		pass
 	pass
 	

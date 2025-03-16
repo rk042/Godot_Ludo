@@ -3,9 +3,10 @@ class_name Piece
 extends Node2D
 
 var CurrentPosition: int = 0
+var CurrentState:GameManager.PieceStateEnum = GameManager.PieceStateEnum.InLobby
+
 @export var PieceSprite: Sprite2D
 @export var animation_PieceSelect: AnimationPlayer
-@export var isAtHome:bool = false
 
 func SetCurrentPosition(value: int)->void:
 	CurrentPosition = value
@@ -13,6 +14,9 @@ func SetCurrentPosition(value: int)->void:
 	
 func GetCurrentPosition()->int:
 	return CurrentPosition
+
+func HasThisPlayerUnlockedPiece()->bool:
+	return CurrentState == GameManager.PieceStateEnum.InLobby
 
 func _input(event: InputEvent) -> void:
 	#wait for player dice to roll
@@ -28,7 +32,7 @@ func _input(event: InputEvent) -> void:
 	pass
 
 func PlayAnimation()-> void:
-	if(!isAtHome):
+	if(CurrentState != GameManager.PieceStateEnum.InHouse):
 		animation_PieceSelect.play("PieceAnimation_Select")
 		pass
 	pass

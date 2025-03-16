@@ -6,9 +6,18 @@ extends Node2D
 @export var GreenPieces : PlayerPiecesGroup
 @export var RedPieces : PlayerPiecesGroup
 
-func HasThisPlayerUnlockedTurn()-> bool:
-	var returnValue : bool = false
-	return returnValue
+func HasThisPlayerUnlockedTurn(playerIndex:int)-> bool:
+	match playerIndex:
+		0:
+			return GreenPieces.HasUnlockedAnyPiece()
+		1:
+			return YellowPieces.HasUnlockedAnyPiece()
+		2:
+			return BluePieces.HasUnlockedAnyPiece()
+		3:
+			return RedPieces.HasUnlockedAnyPiece()
+
+	return false
 
 func PlayAnimationByPlayerIndex(index:int)->void:
 	

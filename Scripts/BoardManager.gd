@@ -60,7 +60,19 @@ func _on_dice_root_on_dice_roll_begin() -> void:
 func _on_dice_root_on_dice_rolled(value: int) -> void:
 	print("diceRolled! Value is ",value)
 	currentDiceValue = value
-	
+		
+	#if this user get 1 to 5 and this user do not have any piece unlocked to move so skip turn
+	if(currentDiceValue !=6 && piecesManager.HasThisPlayerUnlockedTurn(currentPlayerTurnIndex) == false):
+		print("skip this player turn because this player has not unlocked any piece yet")
+		#update turn
+		UpdatePlayerTurn()
+		
+		# change gamecurrent state to player select piece
+		GameManager.GameCurrentState = GameManager.GameStateEnum.PlayerCanRollDice
+		
+		print("Game state ",GameManager.GameCurrentState)
+		return
+
 	#play piece animation because player rolled dice
 	PlayPieceAnimation()
 	pass # Replace with function body.
@@ -80,6 +92,7 @@ func MovePieces(value: int, moveThisPiece: Piece) -> void:
 		
 	#update current piece value to current position so next time we get frash value which we use in value
 	moveThisPiece.SetCurrentPosition(value)
+	moveThisPiece.CurrentState = GameManager.PieceStateEnum.InWayPoint
 	
 	#update state so next player can roll dice
 	GameManager.GameCurrentState = GameManager.GameStateEnum.PlayerCanRollDice
@@ -95,11 +108,11 @@ func UpdatePlayerTurn() -> void:
 	if(currentPlayerTurnIndex >=4):
 		currentPlayerTurnIndex=0
 		pass
-		
+
 	#play place animation to suggest use it's your turn to roll dice
 	PlayPlaceAnimation()
 	pass
-	
+
 func PlayPlaceAnimation()-> void:
 	
 	#update animation state for play right player turn place animation
