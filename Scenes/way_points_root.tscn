@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Scripts/WayPointManager.gd" id="1_j2bl4"]
 [ext_resource type="PackedScene" uid="uid://dcsagildjxxnr" path="res://Scenes/Roots/way_point_root.tscn" id="1_p5fk6"]
 
-[node name="WayPointsManager" type="Node2D" node_paths=PackedStringArray("main_path_for_all", "green_path", "yellow_path", "blue_path", "red_path")]
+[node name="WayPointsManager" type="Node2D" node_paths=PackedStringArray("main_path_for_all", "green_path", "yellow_path", "blue_path", "red_path") groups=["WayPointManagerGroup"]]
 script = ExtResource("1_j2bl4")
 main_path_for_all = NodePath("MainPathForAll")
 green_path = NodePath("Green")

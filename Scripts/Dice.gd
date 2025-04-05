@@ -4,6 +4,7 @@ extends Node2D
 
 @export var Maindice: Sprite2D
 @export var DicesSpriteArray : Array[Texture2D]
+@export var IsTestRun:bool 
 
 signal OnDiceRolled(value: int)
 signal OnDiceAniamtionComplate_Local
@@ -33,6 +34,11 @@ func RollDice() -> void:
 
 		# change gamecurrent state to player select piece
 		GameManager.GameCurrentState = GameManager.GameStateEnum.PlayerSelectPiece
+		
+		# for testing purpose directly set 6
+		if(IsTestRun):
+			randomNumber = 6
+			pass
 		
 		OnDiceRolled.emit(randomNumber)
 		pass

@@ -5,11 +5,18 @@ extends Node2D
 var CurrentPosition: int = 0
 var CurrentState:GameManager.PieceStateEnum = GameManager.PieceStateEnum.InLobby
 
+@export var CurrentPlayerColor:GameManager.PlayerColor
 @export var PieceSprite: Sprite2D
 @export var animation_PieceSelect: AnimationPlayer
 
-func SetCurrentPosition(value: int)->void:
-	CurrentPosition = value
+func SetStartPosition(index: int)->void:
+	CurrentPosition = index
+	pass
+
+func SetCurrentPosition(index: int)->void:
+	CurrentPosition = index
+	var wayPointManager:WayPointsManager = get_tree().get_first_node_in_group("WayPointManagerGroup")
+	wayPointManager.SetPieceToThisWayPoint(index,self)
 	pass
 	
 func GetCurrentPosition()->int:

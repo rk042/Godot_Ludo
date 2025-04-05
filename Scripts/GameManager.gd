@@ -2,6 +2,7 @@ extends Node
 
 enum GameStateEnum {Null,PlayerCanRollDice,PlayerSelectPiece}
 enum PieceStateEnum {InLobby,InWayPoint,InHouse}
+enum PlayerColor {Green,Yellow,Blue,Red}
 
 var GameCurrentState = GameStateEnum.PlayerCanRollDice
 

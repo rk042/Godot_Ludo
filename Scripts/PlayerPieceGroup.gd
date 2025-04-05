@@ -7,7 +7,7 @@ extends Node2D
 
 func _ready() -> void:
 	for i in range(0,Pieces.size()):
-		Pieces[i].SetCurrentPosition(PlayerFirstPosition)
+		Pieces[i].SetStartPosition(PlayerFirstPosition)
 		Pieces[i].CurrentState = GameManager.PieceStateEnum.InLobby
 		pass
 	pass
@@ -28,7 +28,9 @@ func HasUnlockedAnyPiece()->bool:
 
 func PlayAllPieceAnimation()->void:
 	for i in range(0,Pieces.size()):
-		Pieces[i].PlayAnimation()
+		if(Pieces[i].CurrentState!=GameManager.PieceStateEnum.InHouse):
+			Pieces[i].PlayAnimation()
+			pass
 		pass
 	pass
 func StopAllPieceAnimation()->void:
