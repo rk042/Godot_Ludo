@@ -21,7 +21,11 @@ piecesManager = NodePath("../../Pieces")
 position = Vector2(0, 1172)
 IsTestRun = true
 
-[node name="WayPoints" parent="." instance=ExtResource("7_rw8h0")]
+[node name="WayPoints" parent="." node_paths=PackedStringArray("green_path", "yellow_path", "blue_path", "red_path") instance=ExtResource("7_rw8h0")]
+green_path = []
+yellow_path = []
+blue_path = []
+red_path = []
 
 [connection signal="OnDiceRollBegin" from="Dice/DiceRoot" to="Board/board_GamePlay" method="_on_dice_root_on_dice_roll_begin"]
 [connection signal="OnDiceRolled" from="Dice/DiceRoot" to="Board/board_GamePlay" method="_on_dice_root_on_dice_rolled"]

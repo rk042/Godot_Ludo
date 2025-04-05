@@ -10,6 +10,7 @@ var currentPlayerTurnIndex:int = -1
 var currentDiceValue:int = -1
 var currentAnimationPlaceName:String = ""
 var hasKill:bool = false
+var currentPlayerColor:GameManager.PlayerColor
 
 signal OnHasKill
 
@@ -24,7 +25,7 @@ func _on_player_select_piece(value:Piece) ->void:
 	#stop piece animation after player click on it
 	StopPieceAnimation()
 	
-	var playerType = value.get_parent().name
+	var playerType = value.CurrentPlayerColor
 	var isPlayerTurn = IsThisPlayerTurn(playerType)
 	
 	#check is right player turn
@@ -35,20 +36,20 @@ func _on_player_select_piece(value:Piece) ->void:
 		pass
 	pass
 	
-func IsThisPlayerTurn(playerType:String)->bool:
+func IsThisPlayerTurn(playerType:GameManager.PlayerColor)->bool:
 	var returnValue:bool = false
 	
 	match playerType:
-		"Green":
+		GameManager.PlayerColor.Green:
 			returnValue = (currentPlayerTurnIndex == 0)
 			pass
-		"Yellow":
+		GameManager.PlayerColor.Yellow:
 			returnValue = (currentPlayerTurnIndex == 1)
 			pass
-		"Blue":
+		GameManager.PlayerColor.Blue:
 			returnValue = (currentPlayerTurnIndex == 2)
 			pass
-		"Red":
+		GameManager.PlayerColor.Red:
 			returnValue = (currentPlayerTurnIndex == 3)
 			pass
 	
@@ -90,7 +91,7 @@ func MovePieces(value: int, moveThisPiece: Piece) -> void:
 	
 	#move piece step by step 1 second for 1 step
 	for i in range(moveThisPiece.GetCurrentPosition(),value):
-		moveThisPiece.position = way_points.GetPositionOfThisPoint(i)
+		moveThisPiece.position = way_points.GetPositionOfThisPoint(i,currentPlayerColor)
 		await get_tree().create_timer(1).timeout
 		
 	#update current piece value to current position so next time we get frash value which we use in value
@@ -114,7 +115,7 @@ func MovePiecesToHome(value: int, moveThisPiece: Piece) -> void:
 
 	#move piece step by step 1 second for 1 step
 	for i in range(moveThisPiece.GetCurrentPosition()-1,value-1,-1):
-		moveThisPiece.position = way_points.GetPositionOfThisPoint(i)
+		moveThisPiece.position = way_points.GetPositionOfThisPoint(i,currentPlayerColor)
 		await get_tree().create_timer(0.5).timeout
 		
 	#update current piece value to current position so next time we get frash value which we use in value
@@ -136,6 +137,20 @@ func UpdatePlayerTurn() -> void:
 	if(currentPlayerTurnIndex >=4):
 		currentPlayerTurnIndex=0
 		pass
+
+	match currentPlayerTurnIndex:
+		0:
+			currentPlayerColor = GameManager.PlayerColor.Green
+			pass
+		1:
+			currentPlayerColor = GameManager.PlayerColor.Yellow
+			pass
+		2:
+			currentPlayerColor = GameManager.PlayerColor.Blue
+			pass
+		3:
+			currentPlayerColor = GameManager.PlayerColor.Red
+			pass
 
 	#play place animation to suggest use it's your turn to roll dice
 	PlayPlaceAnimation()

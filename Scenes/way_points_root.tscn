@@ -3,13 +3,12 @@
 [ext_resource type="Script" path="res://Scripts/WayPointManager.gd" id="1_j2bl4"]
 [ext_resource type="PackedScene" uid="uid://dcsagildjxxnr" path="res://Scenes/Roots/way_point_root.tscn" id="1_p5fk6"]
 
-[node name="WayPointsManager" type="Node2D" node_paths=PackedStringArray("main_path_for_all", "green_path", "yellow_path", "blue_path", "red_path") groups=["WayPointManagerGroup"]]
+[node name="WayPointsManager" type="Node2D" node_paths=PackedStringArray("green_path", "yellow_path", "blue_path", "red_path") groups=["WayPointManagerGroup"]]
 script = ExtResource("1_j2bl4")
-main_path_for_all = NodePath("MainPathForAll")
-green_path = NodePath("Green")
-yellow_path = NodePath("Yellow")
-blue_path = NodePath("Blue")
-red_path = NodePath("Red")
+green_path = [NodePath("MainPathForAll/0"), NodePath("MainPathForAll/1"), NodePath("MainPathForAll/3"), NodePath("MainPathForAll/4"), NodePath("MainPathForAll/5"), NodePath("MainPathForAll/6"), NodePath("MainPathForAll/7"), NodePath("MainPathForAll/8"), NodePath("MainPathForAll/9"), NodePath("MainPathForAll/10"), NodePath("MainPathForAll/11"), NodePath("MainPathForAll/12"), NodePath("MainPathForAll/13"), NodePath("MainPathForAll/14"), NodePath("MainPathForAll/15"), NodePath("MainPathForAll/16"), NodePath("MainPathForAll/17"), NodePath("MainPathForAll/18"), NodePath("MainPathForAll/19"), NodePath("MainPathForAll/20"), NodePath("MainPathForAll/21"), NodePath("MainPathForAll/22"), NodePath("MainPathForAll/23"), NodePath("MainPathForAll/24"), NodePath("MainPathForAll/25"), NodePath("MainPathForAll/26"), NodePath("MainPathForAll/27"), NodePath("MainPathForAll/28"), NodePath("MainPathForAll/29"), NodePath("MainPathForAll/30"), NodePath("MainPathForAll/31"), NodePath("MainPathForAll/32"), NodePath("MainPathForAll/33"), NodePath("MainPathForAll/34"), NodePath("MainPathForAll/35"), NodePath("MainPathForAll/36"), NodePath("MainPathForAll/37"), NodePath("MainPathForAll/38"), NodePath("MainPathForAll/39"), NodePath("MainPathForAll/40"), NodePath("MainPathForAll/41"), NodePath("MainPathForAll/42"), NodePath("MainPathForAll/43"), NodePath("MainPathForAll/44"), NodePath("MainPathForAll/45"), NodePath("MainPathForAll/46"), NodePath("MainPathForAll/47"), NodePath("MainPathForAll/48"), NodePath("MainPathForAll/49"), NodePath("MainPathForAll/50"), NodePath("Green/51"), NodePath("Green/52"), NodePath("Green/53"), NodePath("Green/54"), NodePath("Green/55"), NodePath("Green/56")]
+yellow_path = [NodePath("MainPathForAll/13"), NodePath("MainPathForAll/14"), NodePath("MainPathForAll/15"), NodePath("MainPathForAll/16"), NodePath("MainPathForAll/17"), NodePath("MainPathForAll/18"), NodePath("MainPathForAll/19"), NodePath("MainPathForAll/20"), NodePath("MainPathForAll/21"), NodePath("MainPathForAll/22"), NodePath("MainPathForAll/23"), NodePath("MainPathForAll/24"), NodePath("MainPathForAll/25"), NodePath("MainPathForAll/26"), NodePath("MainPathForAll/27"), NodePath("MainPathForAll/28"), NodePath("MainPathForAll/29"), NodePath("MainPathForAll/30"), NodePath("MainPathForAll/31"), NodePath("MainPathForAll/32"), NodePath("MainPathForAll/33"), NodePath("MainPathForAll/34"), NodePath("MainPathForAll/35"), NodePath("MainPathForAll/36"), NodePath("MainPathForAll/37"), NodePath("MainPathForAll/38"), NodePath("MainPathForAll/39"), NodePath("MainPathForAll/40"), NodePath("MainPathForAll/41"), NodePath("MainPathForAll/42"), NodePath("MainPathForAll/43"), NodePath("MainPathForAll/44"), NodePath("MainPathForAll/45"), NodePath("MainPathForAll/46"), NodePath("MainPathForAll/47"), NodePath("MainPathForAll/48"), NodePath("MainPathForAll/49"), NodePath("MainPathForAll/50"), NodePath("Yellow/51"), NodePath("MainPathForAll/0"), NodePath("MainPathForAll/1"), NodePath("MainPathForAll/2"), NodePath("MainPathForAll/3"), NodePath("MainPathForAll/4"), NodePath("MainPathForAll/5"), NodePath("MainPathForAll/6"), NodePath("MainPathForAll/7"), NodePath("MainPathForAll/8"), NodePath("MainPathForAll/9"), NodePath("MainPathForAll/10"), NodePath("MainPathForAll/11"), NodePath("Yellow/52"), NodePath("Yellow/53"), NodePath("Yellow/54"), NodePath("Yellow/55"), NodePath("Yellow/56")]
+blue_path = [NodePath("MainPathForAll/26"), NodePath("MainPathForAll/27"), NodePath("MainPathForAll/28"), NodePath("MainPathForAll/29"), NodePath("MainPathForAll/30"), NodePath("MainPathForAll/31"), NodePath("MainPathForAll/32"), NodePath("MainPathForAll/33"), NodePath("MainPathForAll/34"), NodePath("MainPathForAll/35"), NodePath("MainPathForAll/36"), NodePath("MainPathForAll/37"), NodePath("MainPathForAll/38"), NodePath("MainPathForAll/39"), NodePath("MainPathForAll/40"), NodePath("MainPathForAll/41"), NodePath("MainPathForAll/42"), NodePath("MainPathForAll/43"), NodePath("MainPathForAll/44"), NodePath("MainPathForAll/45"), NodePath("MainPathForAll/46"), NodePath("MainPathForAll/47"), NodePath("MainPathForAll/48"), NodePath("MainPathForAll/49"), NodePath("MainPathForAll/50"), NodePath("MainPathForAll/51"), NodePath("MainPathForAll/0"), NodePath("MainPathForAll/1"), NodePath("MainPathForAll/2"), NodePath("MainPathForAll/3"), NodePath("MainPathForAll/4"), NodePath("MainPathForAll/5"), NodePath("MainPathForAll/6"), NodePath("MainPathForAll/7"), NodePath("MainPathForAll/8"), NodePath("MainPathForAll/9"), NodePath("MainPathForAll/10"), NodePath("MainPathForAll/11"), NodePath("MainPathForAll/12"), NodePath("MainPathForAll/13"), NodePath("MainPathForAll/14"), NodePath("MainPathForAll/15"), NodePath("MainPathForAll/16"), NodePath("MainPathForAll/17"), NodePath("MainPathForAll/18"), NodePath("MainPathForAll/19"), NodePath("MainPathForAll/20"), NodePath("MainPathForAll/21"), NodePath("MainPathForAll/22"), NodePath("MainPathForAll/23"), NodePath("MainPathForAll/24"), NodePath("Blue/51"), NodePath("Blue/52"), NodePath("Blue/53"), NodePath("Blue/54"), NodePath("Blue/55"), null]
+red_path = [NodePath("MainPathForAll/39"), NodePath("MainPathForAll/40"), NodePath("MainPathForAll/41"), NodePath("MainPathForAll/42"), NodePath("MainPathForAll/43"), NodePath("MainPathForAll/44"), NodePath("MainPathForAll/45"), NodePath("MainPathForAll/46"), NodePath("MainPathForAll/47"), NodePath("MainPathForAll/48"), NodePath("MainPathForAll/49"), NodePath("MainPathForAll/50"), NodePath("Green/51"), NodePath("MainPathForAll/0"), NodePath("MainPathForAll/1"), NodePath("MainPathForAll/2"), NodePath("MainPathForAll/3"), NodePath("MainPathForAll/4"), NodePath("MainPathForAll/5"), NodePath("MainPathForAll/6"), NodePath("MainPathForAll/7"), NodePath("MainPathForAll/8"), NodePath("MainPathForAll/9"), NodePath("MainPathForAll/10"), NodePath("MainPathForAll/11"), NodePath("MainPathForAll/12"), NodePath("MainPathForAll/13"), NodePath("MainPathForAll/14"), NodePath("MainPathForAll/15"), NodePath("MainPathForAll/16"), NodePath("MainPathForAll/17"), NodePath("MainPathForAll/18"), NodePath("MainPathForAll/19"), NodePath("MainPathForAll/20"), NodePath("MainPathForAll/21"), NodePath("MainPathForAll/22"), NodePath("MainPathForAll/23"), NodePath("MainPathForAll/24"), NodePath("MainPathForAll/25"), NodePath("MainPathForAll/26"), NodePath("MainPathForAll/27"), NodePath("MainPathForAll/28"), NodePath("MainPathForAll/29"), NodePath("MainPathForAll/30"), NodePath("MainPathForAll/31"), NodePath("MainPathForAll/32"), NodePath("MainPathForAll/33"), NodePath("MainPathForAll/34"), NodePath("MainPathForAll/35"), NodePath("MainPathForAll/36"), NodePath("MainPathForAll/37"), NodePath("Red/51"), NodePath("Red/52"), NodePath("Red/53"), NodePath("Red/54"), NodePath("Red/55"), NodePath("Red/56")]
 
 [node name="MainPathForAll" type="Node2D" parent="."]
 
@@ -171,80 +170,80 @@ position = Vector2(-119, 843)
 
 [node name="Green" type="Node2D" parent="."]
 
-[node name="0" parent="Green" instance=ExtResource("1_p5fk6")]
+[node name="51" parent="Green" instance=ExtResource("1_p5fk6")]
 position = Vector2(0, 723)
 
-[node name="1" parent="Green" instance=ExtResource("1_p5fk6")]
+[node name="52" parent="Green" instance=ExtResource("1_p5fk6")]
 position = Vector2(0, 602)
 
-[node name="2" parent="Green" instance=ExtResource("1_p5fk6")]
+[node name="53" parent="Green" instance=ExtResource("1_p5fk6")]
 position = Vector2(0, 481)
 
-[node name="3" parent="Green" instance=ExtResource("1_p5fk6")]
+[node name="54" parent="Green" instance=ExtResource("1_p5fk6")]
 position = Vector2(0, 360)
 
-[node name="4" parent="Green" instance=ExtResource("1_p5fk6")]
+[node name="55" parent="Green" instance=ExtResource("1_p5fk6")]
 position = Vector2(0, 241)
 
-[node name="5" parent="Green" instance=ExtResource("1_p5fk6")]
+[node name="56" parent="Green" instance=ExtResource("1_p5fk6")]
 position = Vector2(0, 112)
 
 [node name="Yellow" type="Node2D" parent="."]
 
-[node name="0" parent="Yellow" instance=ExtResource("1_p5fk6")]
+[node name="51" parent="Yellow" instance=ExtResource("1_p5fk6")]
 position = Vector2(-716, 1)
 
-[node name="1" parent="Yellow" instance=ExtResource("1_p5fk6")]
+[node name="52" parent="Yellow" instance=ExtResource("1_p5fk6")]
 position = Vector2(-598, 1)
 
-[node name="2" parent="Yellow" instance=ExtResource("1_p5fk6")]
+[node name="53" parent="Yellow" instance=ExtResource("1_p5fk6")]
 position = Vector2(-479, 1)
 
-[node name="3" parent="Yellow" instance=ExtResource("1_p5fk6")]
+[node name="54" parent="Yellow" instance=ExtResource("1_p5fk6")]
 position = Vector2(-358, 1)
 
-[node name="4" parent="Yellow" instance=ExtResource("1_p5fk6")]
+[node name="55" parent="Yellow" instance=ExtResource("1_p5fk6")]
 position = Vector2(-239, 1)
 
-[node name="5" parent="Yellow" instance=ExtResource("1_p5fk6")]
+[node name="56" parent="Yellow" instance=ExtResource("1_p5fk6")]
 position = Vector2(-126, 1)
 
 [node name="Blue" type="Node2D" parent="."]
 
-[node name="0" parent="Blue" instance=ExtResource("1_p5fk6")]
+[node name="51" parent="Blue" instance=ExtResource("1_p5fk6")]
 position = Vector2(0, -720)
 
-[node name="1" parent="Blue" instance=ExtResource("1_p5fk6")]
+[node name="52" parent="Blue" instance=ExtResource("1_p5fk6")]
 position = Vector2(0, -597)
 
-[node name="2" parent="Blue" instance=ExtResource("1_p5fk6")]
+[node name="53" parent="Blue" instance=ExtResource("1_p5fk6")]
 position = Vector2(0, -481)
 
-[node name="3" parent="Blue" instance=ExtResource("1_p5fk6")]
+[node name="54" parent="Blue" instance=ExtResource("1_p5fk6")]
 position = Vector2(0, -362)
 
-[node name="4" parent="Blue" instance=ExtResource("1_p5fk6")]
+[node name="55" parent="Blue" instance=ExtResource("1_p5fk6")]
 position = Vector2(0, -240)
 
-[node name="5" parent="Blue" instance=ExtResource("1_p5fk6")]
+[node name="56" parent="Blue" instance=ExtResource("1_p5fk6")]
 position = Vector2(0, -116)
 
 [node name="Red" type="Node2D" parent="."]
 
-[node name="0" parent="Red" instance=ExtResource("1_p5fk6")]
+[node name="51" parent="Red" instance=ExtResource("1_p5fk6")]
 position = Vector2(722, 0)
 
-[node name="1" parent="Red" instance=ExtResource("1_p5fk6")]
+[node name="52" parent="Red" instance=ExtResource("1_p5fk6")]
 position = Vector2(600, 0)
 
-[node name="2" parent="Red" instance=ExtResource("1_p5fk6")]
+[node name="53" parent="Red" instance=ExtResource("1_p5fk6")]
 position = Vector2(481, 0)
 
-[node name="3" parent="Red" instance=ExtResource("1_p5fk6")]
+[node name="54" parent="Red" instance=ExtResource("1_p5fk6")]
 position = Vector2(366, -2)
 
-[node name="4" parent="Red" instance=ExtResource("1_p5fk6")]
+[node name="55" parent="Red" instance=ExtResource("1_p5fk6")]
 position = Vector2(244, 2)
 
-[node name="5" parent="Red" instance=ExtResource("1_p5fk6")]
+[node name="56" parent="Red" instance=ExtResource("1_p5fk6")]
 position = Vector2(122, 2)
