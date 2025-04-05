@@ -8,12 +8,6 @@ extends Node2D
 @export var blue_path: Node
 @export var red_path: Node
 
-var boardManager:BoardManager
-
-func _ready() -> void:
-	boardManager = get_tree().get_first_node_in_group("BoardManager")
-	pass
-
 func GetPositionOfThisPoint(index: int)->Vector2:
 	var position = Vector2.ZERO
 	

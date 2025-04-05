@@ -3,21 +3,27 @@ extends Node2D
 
 @export var isThisSafePlace:bool
 
-var wayPointManager:WayPointsManager
 var myHoldings:Array[Piece]
 
+#var wayPointManager:WayPointsManager
+var boardManager:BoardManager
+
 func _ready() -> void:
-	wayPointManager = get_tree().get_first_node_in_group("WayPointManagerGroup")
+	#wayPointManager = get_tree().get_first_node_in_group("WayPointManagerGroup")
+	boardManager = get_tree().get_first_node_in_group("BoardManager")
 	pass
 
 func SetPiece(piece:Piece)->void:
-	print("piece data __ ",piece.name)
+	#print("piece data __ ",piece.name)
 	myHoldings.push_back(piece)
-	var hasKill = HasWeHaveOpponentPiece()
+	
+	var hasKill:bool = HasWeHaveOpponentPiece()
+	
 	if(hasKill):
-		print("it is kill")
+		boardManager.DetectKill(myHoldings.pop_front())
 		pass
 	else:
+		boardManager.DetectKill(null)
 		print("same as turn player")
 		pass
 	pass
@@ -34,7 +40,7 @@ func HasWeHaveOpponentPiece()->bool: #outPiece:Piece
 	var lastValue = myHoldings[myHoldings.size()-1];
 	
 	for item:Piece in myHoldings:
-		if(item != lastValue):
+		if(item.CurrentPlayerColor != lastValue.CurrentPlayerColor):
 			#outPiece=item
 			return true
 		pass

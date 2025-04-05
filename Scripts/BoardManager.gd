@@ -9,6 +9,9 @@ extends Node2D
 var currentPlayerTurnIndex:int = -1
 var currentDiceValue:int = -1
 var currentAnimationPlaceName:String = ""
+var hasKill:bool = false
+
+signal OnHasKill
 
 func _ready() -> void:
 	UpdatePlayerTurn()
@@ -91,7 +94,11 @@ func MovePieces(value: int, moveThisPiece: Piece) -> void:
 		await get_tree().create_timer(1).timeout
 		
 	#update current piece value to current position so next time we get frash value which we use in value
-	moveThisPiece.SetCurrentPosition(value)
+	moveThisPiece.SetCurrentPositionAndCheckKill(value)
+	
+	if (hasKill):
+		await OnHasKill
+		
 	moveThisPiece.CurrentState = GameManager.PieceStateEnum.InWayPoint
 	
 	#update state so next player can roll dice
@@ -101,7 +108,28 @@ func MovePieces(value: int, moveThisPiece: Piece) -> void:
 	UpdatePlayerTurn()
 	pass
 
+
+
+func MovePiecesToHome(value: int, moveThisPiece: Piece) -> void:
+
+	#move piece step by step 1 second for 1 step
+	for i in range(moveThisPiece.GetCurrentPosition()-1,value-1,-1):
+		moveThisPiece.position = way_points.GetPositionOfThisPoint(i)
+		await get_tree().create_timer(0.5).timeout
+		
+	#update current piece value to current position so next time we get frash value which we use in value
+	moveThisPiece.CurrentPosition = value
+	moveThisPiece.CurrentState = GameManager.PieceStateEnum.InWayPoint
+	
+	OnHasKill.emit()
+	
+	pass
+
+
+
+
 func UpdatePlayerTurn() -> void:
+	print("Update player turn......")
 	currentPlayerTurnIndex+=1
 	
 	#if player index increase to 4 reset counter again.
@@ -140,6 +168,16 @@ func PlayPieceAnimation()-> void:
 
 func StopPieceAnimation()-> void:
 	piecesManager.StopAnimation()
+	pass
+
+func DetectKill(pieceToBeGoHome:Piece)->void:
+
+	if(pieceToBeGoHome == null):
+		hasKill=false
+	else:
+		print("sent ",pieceToBeGoHome.name," to home")
+		hasKill = true	
+		MovePiecesToHome(pieceToBeGoHome.StartingPosition,pieceToBeGoHome)
 	pass
 
 #func AnimateSprite() -> void:
