@@ -73,7 +73,7 @@ func _on_dice_root_on_dice_rolled(value: int) -> void:
 		UpdatePlayerTurn()
 		
 		# change gamecurrent state to player select piece
-		GameManager.GameCurrentState = GameManager.GameStateEnum.PlayerCanRollDice
+		GameManager.UpdateGameCurrentState(GameManager.GameStateEnum.PlayerCanRollDice)
 		
 		print("Game state ",GameManager.GameCurrentState)
 		return
@@ -88,7 +88,7 @@ func MovePieces(value: int, moveThisPiece: Piece) -> void:
 	value+=moveThisPiece.GetCurrentPosition()
 	
 	#update game state other wise use can click on piece or dice and game will brack
-	GameManager.GameCurrentState = GameManager.GameStateEnum.Null
+	GameManager.UpdateGameCurrentState(GameManager.GameStateEnum.Null)
 	
 	#move piece step by step 1 second for 1 step
 	for i in range(moveThisPiece.GetCurrentPosition(),value):
@@ -104,8 +104,9 @@ func MovePieces(value: int, moveThisPiece: Piece) -> void:
 	moveThisPiece.CurrentState = GameManager.PieceStateEnum.InWayPoint
 	
 	#update state so next player can roll dice
-	GameManager.GameCurrentState = GameManager.GameStateEnum.PlayerCanRollDice
 	
+	GameManager.UpdateGameCurrentState(GameManager.GameStateEnum.PlayerCanRollDice)
+
 	#update turn
 	UpdatePlayerTurn()
 	pass

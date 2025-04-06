@@ -22,8 +22,8 @@ func RollDice() -> void:
 		OnDiceRollBegin.emit()
 		
 		# change gamecurrent state to player select piece
-		GameManager.GameCurrentState = GameManager.GameStateEnum.Null
-		
+		GameManager.UpdateGameCurrentState(GameManager.GameStateEnum.Null)
+
 		var randomNumber = RandomNumberGenerator.new().randf_range(0,6)
 		AnimateDice()
 		
@@ -33,8 +33,7 @@ func RollDice() -> void:
 		randomNumber+=1
 
 		# change gamecurrent state to player select piece
-		GameManager.GameCurrentState = GameManager.GameStateEnum.PlayerSelectPiece
-		
+		GameManager.UpdateGameCurrentState(GameManager.GameStateEnum.PlayerSelectPiece)
 		# for testing purpose directly set 6
 		if(IsTestRun):
 			randomNumber = 6
