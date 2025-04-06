@@ -44,6 +44,10 @@ func _input(event: InputEvent) -> void:
 		pass
 	pass
 
+func AIInput()->void:
+	GameManager.OnPlayerSelectPiece.emit(self)
+	pass
+
 func PlayAnimation()-> void:
 	if(CurrentState != GameManager.PieceStateEnum.InHouse):
 		animation_PieceSelect.play("PieceAnimation_Select")

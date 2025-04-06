@@ -6,32 +6,33 @@ extends Node2D
 @export var GreenPieces : PlayerPiecesGroup
 @export var RedPieces : PlayerPiecesGroup
 
-func HasThisPlayerUnlockedTurn(playerIndex:int)-> bool:
-	match playerIndex:
-		0:
+
+func HasThisPlayerUnlockedTurn(playerColor:GameManager.PlayerColor)-> bool:
+	match playerColor:
+		GameManager.PlayerColor.Green:
 			return GreenPieces.HasUnlockedAnyPiece()
-		1:
+		GameManager.PlayerColor.Yellow:
 			return YellowPieces.HasUnlockedAnyPiece()
-		2:
+		GameManager.PlayerColor.Blue:
 			return BluePieces.HasUnlockedAnyPiece()
-		3:
+		GameManager.PlayerColor.Red:
 			return RedPieces.HasUnlockedAnyPiece()
 
 	return false
 
-func PlayAnimationByPlayerIndex(index:int)->void:
+func PlayAnimationByPlayerIndex(playerColor:GameManager.PlayerColor)->void:
 	
-	match index:
-		0:
+	match playerColor:
+		GameManager.PlayerColor.Green:
 			GreenPieces.PlayAllPieceAnimation()
 			pass
-		1:
+		GameManager.PlayerColor.Yellow:
 			YellowPieces.PlayAllPieceAnimation()
 			pass
-		2:
+		GameManager.PlayerColor.Blue:
 			BluePieces.PlayAllPieceAnimation()
 			pass
-		3:
+		GameManager.PlayerColor.Red:
 			RedPieces.PlayAllPieceAnimation()
 			pass
 	pass

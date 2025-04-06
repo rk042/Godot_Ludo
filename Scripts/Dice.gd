@@ -5,10 +5,29 @@ extends Node2D
 @export var Maindice: Sprite2D
 @export var DicesSpriteArray : Array[Texture2D]
 @export var IsTestRun:bool 
+@export var IsAutoDiceRoll:bool
 
 signal OnDiceRolled(value: int)
 signal OnDiceAniamtionComplate_Local
 signal OnDiceRollBegin
+
+func _ready() -> void:
+	#AI for testing.
+	if IsAutoDiceRoll:
+		GameManager.OnGameCurrentStateChange.connect(_on_game_current_state_change)
+		pass
+	pass
+
+#AI for testing.
+func _on_game_current_state_change(updatedState:GameManager.GameStateEnum)-> void:
+	if IsAutoDiceRoll:
+		match updatedState:
+			GameManager.GameStateEnum.PlayerCanRollDice:
+				await get_tree().create_timer(2).timeout
+				RollDice()
+			pass
+		pass
+	pass
 
 func SetSpriteByIndex(index: int) -> void:
 	Maindice.texture = DicesSpriteArray[index]

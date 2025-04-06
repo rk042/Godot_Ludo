@@ -15,6 +15,7 @@ size = Vector2(191, 198)
 script = ExtResource("1_g3x1w")
 Maindice = NodePath("Sprite2D_MainDice")
 DicesSpriteArray = Array[Texture2D]([ExtResource("2_k3mrr"), ExtResource("3_4qbjp"), ExtResource("4_vvv7y"), ExtResource("5_ed5jq"), ExtResource("6_gmmo0"), ExtResource("1_2bjlj")])
+IsAutoDiceRoll = true
 
 [node name="Sprite2D_MainDice" type="Sprite2D" parent="."]
 texture = ExtResource("1_2bjlj")

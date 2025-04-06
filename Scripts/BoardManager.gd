@@ -20,17 +20,17 @@ func _ready() -> void:
 	pass
 
 func _on_player_select_piece(value:Piece) ->void:
-	print(value.get_parent().name)
-	
-	#stop piece animation after player click on it
-	StopPieceAnimation()
-	
+	print("on player select piece__",value.get_parent().name)
+
 	var playerType = value.CurrentPlayerColor
 	var isPlayerTurn = IsThisPlayerTurn(playerType)
 	
 	#check is right player turn
 	if(isPlayerTurn):
-		MovePieces(currentDiceValue,value)
+		#stop piece animation after player click on it
+		StopPieceAnimation()
+		
+		MovePieces(currentDiceValue,value)	
 		pass
 	else: 
 		push_error("is player turn is false!!!!!!",isPlayerTurn)
@@ -67,7 +67,7 @@ func _on_dice_root_on_dice_rolled(value: int) -> void:
 	currentDiceValue = value
 		
 	#if this user get 1 to 5 and this user do not have any piece unlocked to move so skip turn
-	if(currentDiceValue !=6 && piecesManager.HasThisPlayerUnlockedTurn(currentPlayerTurnIndex) == false):
+	if(currentDiceValue !=6 && piecesManager.HasThisPlayerUnlockedTurn(currentPlayerColor) == false):
 		print("skip this player turn because this player has not unlocked any piece yet")
 		#update turn
 		UpdatePlayerTurn()
@@ -181,7 +181,7 @@ func PlayPlaceAnimation()-> void:
 	pass
 
 func PlayPieceAnimation()-> void:
-	piecesManager.PlayAnimationByPlayerIndex(currentPlayerTurnIndex)
+	piecesManager.PlayAnimationByPlayerIndex(currentPlayerColor)
 	pass
 
 func StopPieceAnimation()-> void:

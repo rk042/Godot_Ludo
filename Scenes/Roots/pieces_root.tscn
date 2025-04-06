@@ -17,6 +17,7 @@ RedPieces = NodePath("Red")
 [node name="Green" type="Node2D" parent="." node_paths=PackedStringArray("Pieces")]
 script = ExtResource("2_4gfit")
 Pieces = [NodePath("Piece_green"), NodePath("Piece_green2"), NodePath("Piece_green3"), NodePath("Piece_green4")]
+IsAutoPieceSelect = true
 
 [node name="Piece_green" parent="Green" instance=ExtResource("3_0y0fd")]
 position = Vector2(-661, 413)
@@ -33,6 +34,8 @@ position = Vector2(-658, 635)
 [node name="Yellow" type="Node2D" parent="." node_paths=PackedStringArray("Pieces")]
 script = ExtResource("2_4gfit")
 Pieces = [NodePath("Piece_yellow"), NodePath("Piece_yellow2"), NodePath("Piece_yellow3"), NodePath("Piece_yellow4")]
+CurrentPlayerColor = 1
+IsAutoPieceSelect = true
 
 [node name="Piece_yellow" parent="Yellow" instance=ExtResource("2_qbqiu")]
 position = Vector2(-658, -440)
@@ -53,6 +56,8 @@ CurrentPlayerColor = 1
 [node name="Blue" type="Node2D" parent="." node_paths=PackedStringArray("Pieces")]
 script = ExtResource("2_4gfit")
 Pieces = [NodePath("Piece_blue"), NodePath("Piece_blue2"), NodePath("Piece_blue3"), NodePath("Piece_blue4")]
+CurrentPlayerColor = 2
+IsAutoPieceSelect = true
 
 [node name="Piece_blue" parent="Blue" instance=ExtResource("1_cvck3")]
 position = Vector2(429, -660)
@@ -73,6 +78,8 @@ CurrentPlayerColor = 2
 [node name="Red" type="Node2D" parent="." node_paths=PackedStringArray("Pieces")]
 script = ExtResource("2_4gfit")
 Pieces = [NodePath("Piece_Red"), NodePath("Piece_Red2"), NodePath("Piece_Red3"), NodePath("Piece_Red4")]
+CurrentPlayerColor = 3
+IsAutoPieceSelect = true
 
 [node name="Piece_Red" parent="Red" instance=ExtResource("4_d4x23")]
 position = Vector2(422, 428)

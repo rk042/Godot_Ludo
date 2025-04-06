@@ -4,11 +4,36 @@ extends Node2D
 
 @export var Pieces: Array[Piece]
 @export var PlayerFirstPosition:int
+@export var CurrentPlayerColor:GameManager.PlayerColor
+@export var IsAutoPieceSelect:bool
+
+var boardManager:BoardManager
 
 func _ready() -> void:
+	boardManager = get_tree().get_first_node_in_group("BoardManager")
+
 	for i in range(0,Pieces.size()):
 		Pieces[i].SetStartPosition(PlayerFirstPosition)
 		Pieces[i].CurrentState = GameManager.PieceStateEnum.InLobby
+		pass
+		
+	#AI for testing.
+	if IsAutoPieceSelect:
+		GameManager.OnGameCurrentStateChange.connect(_on_game_current_state_change)
+		pass
+	pass
+
+#AI for testing.
+func _on_game_current_state_change(updatedState:GameManager.GameStateEnum)->void:
+	if IsAutoPieceSelect && boardManager.currentPlayerColor == CurrentPlayerColor:
+		match updatedState:
+			GameManager.GameStateEnum.PlayerSelectPiece:
+				#logic for random select piece and move it
+				await get_tree().create_timer(2).timeout
+				var randomNum:int = RandomNumberGenerator.new().randf_range(0,3)
+				Pieces[randomNum].AIInput()
+				pass
+			pass
 		pass
 	pass
 
