@@ -15,10 +15,8 @@ func _ready() -> void:
 func GetPieceByIndex(index:int)->Piece:
 	if(index>=4):
 		return null
-		pass
-	
+
 	return Pieces[index]
-	pass
 
 func HasUnlockedAnyPiece()->bool:
 	for piece in Pieces:

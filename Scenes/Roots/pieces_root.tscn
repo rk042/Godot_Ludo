@@ -33,7 +33,6 @@ position = Vector2(-658, 635)
 [node name="Yellow" type="Node2D" parent="." node_paths=PackedStringArray("Pieces")]
 script = ExtResource("2_4gfit")
 Pieces = [NodePath("Piece_yellow"), NodePath("Piece_yellow2"), NodePath("Piece_yellow3"), NodePath("Piece_yellow4")]
-PlayerFirstPosition = 13
 
 [node name="Piece_yellow" parent="Yellow" instance=ExtResource("2_qbqiu")]
 position = Vector2(-658, -440)
@@ -54,7 +53,6 @@ CurrentPlayerColor = 1
 [node name="Blue" type="Node2D" parent="." node_paths=PackedStringArray("Pieces")]
 script = ExtResource("2_4gfit")
 Pieces = [NodePath("Piece_blue"), NodePath("Piece_blue2"), NodePath("Piece_blue3"), NodePath("Piece_blue4")]
-PlayerFirstPosition = 26
 
 [node name="Piece_blue" parent="Blue" instance=ExtResource("1_cvck3")]
 position = Vector2(429, -660)
@@ -75,20 +73,19 @@ CurrentPlayerColor = 2
 [node name="Red" type="Node2D" parent="." node_paths=PackedStringArray("Pieces")]
 script = ExtResource("2_4gfit")
 Pieces = [NodePath("Piece_Red"), NodePath("Piece_Red2"), NodePath("Piece_Red3"), NodePath("Piece_Red4")]
-PlayerFirstPosition = 39
 
 [node name="Piece_Red" parent="Red" instance=ExtResource("4_d4x23")]
 position = Vector2(422, 428)
-CurrentPlayerColor = 2
+CurrentPlayerColor = 3
 
 [node name="Piece_Red2" parent="Red" instance=ExtResource("4_d4x23")]
 position = Vector2(644, 428)
-CurrentPlayerColor = 2
+CurrentPlayerColor = 3
 
 [node name="Piece_Red3" parent="Red" instance=ExtResource("4_d4x23")]
 position = Vector2(644, 644)
-CurrentPlayerColor = 2
+CurrentPlayerColor = 3
 
 [node name="Piece_Red4" parent="Red" instance=ExtResource("4_d4x23")]
 position = Vector2(422, 644)
-CurrentPlayerColor = 2
+CurrentPlayerColor = 3

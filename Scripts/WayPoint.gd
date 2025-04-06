@@ -19,11 +19,11 @@ func SetPiece(piece:Piece)->void:
 	
 	var hasKill:bool = HasWeHaveOpponentPiece()
 	
+	boardManager.DetectKill(null)
 	if(hasKill):
 		boardManager.DetectKill(myHoldings.pop_front())
 		pass
 	else:
-		boardManager.DetectKill(null)
 		print("same as turn player")
 		pass
 	pass
@@ -33,6 +33,7 @@ func ClearMe()->void:
 	pass
 	
 func HasWeHaveOpponentPiece()->bool: #outPiece:Piece
+	print("waypoint piece count ",self.name,"__",myHoldings.size())
 	if(isThisSafePlace): return false
 	if(myHoldings.is_empty()): return false
 	if(myHoldings.size()==1): return false

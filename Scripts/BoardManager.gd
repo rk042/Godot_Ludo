@@ -33,6 +33,7 @@ func _on_player_select_piece(value:Piece) ->void:
 		MovePieces(currentDiceValue,value)
 		pass
 	else: 
+		push_error("is player turn is false!!!!!!",isPlayerTurn)
 		pass
 	pass
 	
@@ -91,7 +92,7 @@ func MovePieces(value: int, moveThisPiece: Piece) -> void:
 	
 	#move piece step by step 1 second for 1 step
 	for i in range(moveThisPiece.GetCurrentPosition(),value):
-		moveThisPiece.position = way_points.GetPositionOfThisPoint(i,currentPlayerColor)
+		moveThisPiece.position = way_points.GetPositionOfThisPoint(i,moveThisPiece.CurrentPlayerColor)
 		await get_tree().create_timer(1).timeout
 		
 	#update current piece value to current position so next time we get frash value which we use in value
@@ -115,7 +116,8 @@ func MovePiecesToHome(value: int, moveThisPiece: Piece) -> void:
 
 	#move piece step by step 1 second for 1 step
 	for i in range(moveThisPiece.GetCurrentPosition()-1,value-1,-1):
-		moveThisPiece.position = way_points.GetPositionOfThisPoint(i,currentPlayerColor)
+		print("back move ",i,"__",moveThisPiece.CurrentPlayerColor)
+		moveThisPiece.position = way_points.GetPositionOfThisPoint(i,moveThisPiece.CurrentPlayerColor)
 		await get_tree().create_timer(0.5).timeout
 		
 	#update current piece value to current position so next time we get frash value which we use in value
@@ -188,37 +190,10 @@ func StopPieceAnimation()-> void:
 func DetectKill(pieceToBeGoHome:Piece)->void:
 
 	if(pieceToBeGoHome == null):
-		hasKill=false
+		hasKill = false
 	else:
 		print("sent ",pieceToBeGoHome.name," to home")
 		hasKill = true	
-		MovePiecesToHome(pieceToBeGoHome.StartingPosition,pieceToBeGoHome)
+		#MovePiecesToHome(pieceToBeGoHome.StartingPosition,pieceToBeGoHome)
+		MovePiecesToHome(0,pieceToBeGoHome)
 	pass
-
-#func AnimateSprite() -> void:
-	#for i in range(0,100):
-		#yellowPlace.self_modulate = yellowPlace.self_modulate.lerp(Color.BLACK, 1/i*2)
-		#await get_tree().get_frame()
-		#pass
-	#for i in range(0,100):
-		#yellowPlace.self_modulate = yellowPlace.self_modulate.lerp(Color.WHITE, 1/i*2)
-		#await get_tree().get_tree().get_frame()
-		#pass
-	#pass
-
-#func GetPieceForMove()-> Piece:
-	#var piece = Pieces.GetMovePiece(0,currentPlayerTurnIndex)
-	#return piece
-# testing code for green piece move a step with 1 second tiemr.
-# Called when the node enters the scene tree for the first time.
-#func _ready() -> void:
-	#for i in range(0,way_points.GetCount()):
-		#
-		#var _pos = way_points.GetPositionOfThisPoint(i)
-		#testPiece.position = _pos
-		#
-		#await get_tree().create_timer(1).timeout
-		#
-		#pass
-	#
-	#pass # Replace with function body.

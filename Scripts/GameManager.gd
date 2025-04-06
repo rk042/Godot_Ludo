@@ -6,4 +6,4 @@ enum PlayerColor {Green,Yellow,Blue,Red}
 
 var GameCurrentState = GameStateEnum.PlayerCanRollDice
 
-signal OnPlayerSelectPiece(value:Piece)
+signal OnPlayerSelectPiece(value:Piece) #this is in use please do not remove it.

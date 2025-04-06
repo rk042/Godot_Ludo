@@ -10,7 +10,7 @@
 [node name="Board" type="Node2D" parent="."]
 
 [node name="board_GamePlay" parent="Board" node_paths=PackedStringArray("way_points", "piecesManager") groups=["BoardManager"] instance=ExtResource("1_jjkav")]
-way_points = NodePath("../../WayPoints")
+way_points = NodePath("../../WayPointsManager")
 piecesManager = NodePath("../../Pieces")
 
 [node name="Pieces" parent="." instance=ExtResource("3_x1548")]
@@ -19,13 +19,8 @@ piecesManager = NodePath("../../Pieces")
 
 [node name="DiceRoot" parent="Dice" instance=ExtResource("6_bx5hx")]
 position = Vector2(0, 1172)
-IsTestRun = true
 
-[node name="WayPoints" parent="." node_paths=PackedStringArray("green_path", "yellow_path", "blue_path", "red_path") instance=ExtResource("7_rw8h0")]
-green_path = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
-yellow_path = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
-blue_path = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
-red_path = [null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null, null]
+[node name="WayPointsManager" parent="." instance=ExtResource("7_rw8h0")]
 
 [connection signal="OnDiceRollBegin" from="Dice/DiceRoot" to="Board/board_GamePlay" method="_on_dice_root_on_dice_roll_begin"]
 [connection signal="OnDiceRolled" from="Dice/DiceRoot" to="Board/board_GamePlay" method="_on_dice_root_on_dice_rolled"]
