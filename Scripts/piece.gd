@@ -6,6 +6,7 @@ var CurrentPosition: int = 0
 var CurrentState:GameManager.PieceStateEnum = GameManager.PieceStateEnum.InLobby
 var StartingPosition: int = 0
 var wayPointManager:WayPointsManager 
+var CurrentWayPoint:WayPoint
 
 @export var CurrentPlayerColor:GameManager.PlayerColor
 @export var PieceSprite: Sprite2D
@@ -39,12 +40,16 @@ func _input(event: InputEvent) -> void:
 	
 		if(playerClick && isClickedOnSprite):
 			#print("player has selected ",self.name,"piece")
-			GameManager.OnPlayerSelectPiece.emit(self)
+			AIInput()
 			pass
 		pass
 	pass
 
 func AIInput()->void:
+	if CurrentWayPoint!=null:
+		CurrentWayPoint.RemoveMyRef(self)
+		pass
+
 	GameManager.OnPlayerSelectPiece.emit(self)
 	pass
 

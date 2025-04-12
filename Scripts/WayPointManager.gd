@@ -48,11 +48,17 @@ func SetPieceToThisWayPoint(index:int, piece:Piece)->void:
 					wayPoint = item;
 					pass
 				pass
+			if index >=52:
+				wayPoint = green_path[index]
+				pass
 		GameManager.PlayerColor.Yellow:
 			for item:WayPoint in main_path.get_children():
 				if(item == yellow_path[index]): 
 					wayPoint = item;
 					pass
+				pass
+			if index >=52:
+				wayPoint = yellow_path[index]
 				pass
 		GameManager.PlayerColor.Blue:
 			for item:WayPoint in main_path.get_children():
@@ -60,16 +66,24 @@ func SetPieceToThisWayPoint(index:int, piece:Piece)->void:
 					wayPoint = item;
 					pass
 				pass
+			if index >=52:
+				wayPoint = blue_path[index]
+				pass
 		GameManager.PlayerColor.Red:
 			for item:WayPoint in main_path.get_children():
 				if(item == red_path[index]): 
 					wayPoint = item;
 					pass
 				pass
+			if index >=52:
+				wayPoint = red_path[index]
+				pass
 		pass
 		
 	if wayPoint == null:
 		push_error("waypoint should not be null!!!")
 		pass
+	print("set piece :",index," player :",piece.CurrentPlayerColor," Waypoint : ",wayPoint.name)
+	piece.CurrentWayPoint = wayPoint
 	wayPoint.SetPiece(piece)
 	pass

@@ -83,9 +83,14 @@ func _on_dice_root_on_dice_rolled(value: int) -> void:
 	pass # Replace with function body.
 	
 func MovePieces(value: int, moveThisPiece: Piece) -> void:
+	print("move piece: ",value)
 	
 	#store update value based on current position otherwise piece start moving from 0 each time.
 	value+=moveThisPiece.GetCurrentPosition()
+	
+	if value>=56:
+		value = 56
+		pass
 	
 	#update game state other wise use can click on piece or dice and game will brack
 	GameManager.UpdateGameCurrentState(GameManager.GameStateEnum.Null)

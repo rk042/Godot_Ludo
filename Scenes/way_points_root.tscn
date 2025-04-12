@@ -15,6 +15,7 @@ red_path = [NodePath("MainPathForAll/39"), NodePath("MainPathForAll/40"), NodePa
 
 [node name="0" parent="MainPathForAll" instance=ExtResource("1_p5fk6")]
 position = Vector2(-119, 722)
+isThisSafePlace = true
 
 [node name="1" parent="MainPathForAll" instance=ExtResource("1_p5fk6")]
 position = Vector2(-119, 600)
@@ -39,6 +40,7 @@ position = Vector2(-478, 122)
 
 [node name="8" parent="MainPathForAll" instance=ExtResource("1_p5fk6")]
 position = Vector2(-597, 122)
+isThisSafePlace = true
 
 [node name="9" parent="MainPathForAll" instance=ExtResource("1_p5fk6")]
 position = Vector2(-719, 122)
@@ -54,6 +56,7 @@ position = Vector2(-840, -117)
 
 [node name="13" parent="MainPathForAll" instance=ExtResource("1_p5fk6")]
 position = Vector2(-718, -117)
+isThisSafePlace = true
 
 [node name="14" parent="MainPathForAll" instance=ExtResource("1_p5fk6")]
 position = Vector2(-598, -117)
@@ -78,6 +81,7 @@ position = Vector2(-120, -481)
 
 [node name="21" parent="MainPathForAll" instance=ExtResource("1_p5fk6")]
 position = Vector2(-120, -600)
+isThisSafePlace = true
 
 [node name="22" parent="MainPathForAll" instance=ExtResource("1_p5fk6")]
 position = Vector2(-120, -720)
@@ -93,6 +97,7 @@ position = Vector2(123, -840)
 
 [node name="26" parent="MainPathForAll" instance=ExtResource("1_p5fk6")]
 position = Vector2(123, -718)
+isThisSafePlace = true
 
 [node name="27" parent="MainPathForAll" instance=ExtResource("1_p5fk6")]
 position = Vector2(123, -596)
@@ -117,6 +122,7 @@ position = Vector2(487, -121)
 
 [node name="34" parent="MainPathForAll" instance=ExtResource("1_p5fk6")]
 position = Vector2(599, -121)
+isThisSafePlace = true
 
 [node name="35" parent="MainPathForAll" instance=ExtResource("1_p5fk6")]
 position = Vector2(724, -122)
@@ -132,6 +138,7 @@ position = Vector2(839, 121)
 
 [node name="39" parent="MainPathForAll" instance=ExtResource("1_p5fk6")]
 position = Vector2(723, 121)
+isThisSafePlace = true
 
 [node name="40" parent="MainPathForAll" instance=ExtResource("1_p5fk6")]
 position = Vector2(598, 121)
@@ -156,6 +163,7 @@ position = Vector2(121, 480)
 
 [node name="47" parent="MainPathForAll" instance=ExtResource("1_p5fk6")]
 position = Vector2(121, 604)
+isThisSafePlace = true
 
 [node name="48" parent="MainPathForAll" instance=ExtResource("1_p5fk6")]
 position = Vector2(121, 727)

@@ -14,13 +14,14 @@ func _ready() -> void:
 	pass
 
 func SetPiece(piece:Piece)->void:
-	#print("piece data __ ",piece.name)
+	
 	myHoldings.push_back(piece)
 	
 	var hasKill:bool = HasWeHaveOpponentPiece()
 	
 	boardManager.DetectKill(null)
 	if(hasKill):
+		print("piece data __ ",piece.name)
 		boardManager.DetectKill(myHoldings.pop_front())
 		pass
 	else:
@@ -48,4 +49,7 @@ func HasWeHaveOpponentPiece()->bool: #outPiece:Piece
 	
 	return false
 
+func RemoveMyRef(piece:Piece)->void:
+	myHoldings.erase(piece)
+	pass
 # wait for development progress..
