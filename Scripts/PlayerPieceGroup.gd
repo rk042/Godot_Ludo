@@ -30,7 +30,7 @@ func _on_game_current_state_change(updatedState:GameManager.GameStateEnum)->void
 			GameManager.GameStateEnum.PlayerSelectPiece:
 				#logic for random select piece and move it
 				await get_tree().create_timer(2).timeout
-				var randomNum:int = RandomNumberGenerator.new().randf_range(0,3)
+				var randomNum:int = RandomNumberGenerator.new().randf_range(0,4)
 				Pieces[randomNum].AIInput()
 				pass
 			pass
