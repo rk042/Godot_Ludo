@@ -5,6 +5,33 @@ extends Node2D
 @export var YellowPieces : PlayerPiecesGroup
 @export var GreenPieces : PlayerPiecesGroup
 @export var RedPieces : PlayerPiecesGroup
+	
+func IsGameOver()->bool:
+	
+	if BluePieces.HasThisPlayerCompleted() == false:
+		return false
+	elif YellowPieces.HasThisPlayerCompleted() == false:
+		return false
+	elif GreenPieces.HasThisPlayerCompleted() == false:
+		return false
+	elif  RedPieces.HasThisPlayerCompleted() == false:
+		return false
+		
+	return true
+
+func GetPieceGroupBasedOnType(playerColor:GameManager.PlayerColor)->PlayerPiecesGroup:
+	match playerColor:
+		GameManager.PlayerColor.Green:
+			return GreenPieces
+		GameManager.PlayerColor.Yellow:
+			return YellowPieces
+		GameManager.PlayerColor.Blue:
+			return BluePieces
+		GameManager.PlayerColor.Red:
+			return RedPieces
+		_:
+			return null
+		
 
 
 func HasThisPlayerUnlockedTurn(playerColor:GameManager.PlayerColor)-> bool:
@@ -43,23 +70,3 @@ func StopAnimation()->void:
 	BluePieces.StopAllPieceAnimation()
 	RedPieces.StopAllPieceAnimation()
 	pass
-#func GetMovePiece(index: int,playerIndex: int)-> Piece:
-	#var moveThisPiece:Piece
-	#
-	#match playerIndex:
-		#0:
-			#moveThisPiece = GreenPieces.GetPieceByIndex(index)
-			#pass
-		#1:
-			#moveThisPiece = YellowPieces.GetPieceByIndex(index)
-			#pass
-		#2: 
-			#moveThisPiece = BluePieces.GetPieceByIndex(index)
-			#pass
-		#3: 
-			#moveThisPiece = RedPieces.GetPieceByIndex(index)
-			#pass
-		#pass
-	#
-	#return moveThisPiece
-	#pass

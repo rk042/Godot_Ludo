@@ -25,23 +25,47 @@ func _ready() -> void:
 
 #AI for testing.
 func _on_game_current_state_change(updatedState:GameManager.GameStateEnum)->void:
+	#push_warning("is auto piece dice ",IsAutoPieceSelect," current player color ",boardManager.currentPlayerColor)
 	if IsAutoPieceSelect && boardManager.currentPlayerColor == CurrentPlayerColor:
 		match updatedState:
 			GameManager.GameStateEnum.PlayerSelectPiece:
 				#logic for random select piece and move it
 				await get_tree().create_timer(2).timeout
-				var randomNum:int = RandomNumberGenerator.new().randf_range(0,4)
-				Pieces[randomNum].AIInput()
+				var mypiece = GetPieceForAI()
+				if mypiece != null:
+					mypiece.AIInput()
 				pass
 			pass
 		pass
 	pass
+
+func GetPieceForAI()->Piece:
+	var randomNum:int = RandomNumberGenerator.new().randf_range(0,4)
+	#Pieces[randomNum].AIInput()
+	
+	if Pieces[randomNum].IsInHome:
+		var tempCheck:bool = HasThisPlayerCompleted()
+		if tempCheck:
+			GetPieceForAI()
+			pass
+		else:
+			return null
+		pass
+			
+	return Pieces[randomNum]
 
 func GetPieceByIndex(index:int)->Piece:
 	if(index>=4):
 		return null
 
 	return Pieces[index]
+
+func HasThisPlayerCompleted()->bool:
+	for item:Piece in Pieces:
+		if item.IsInHome == false:
+			return false
+		pass
+	return true
 
 func HasUnlockedAnyPiece()->bool:
 	for piece in Pieces:

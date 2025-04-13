@@ -2,6 +2,7 @@ class_name WayPoint
 extends Node2D
 
 @export var isThisSafePlace:bool
+@export var IsThisHomePlace:bool
 
 var myHoldings:Array[Piece]
 
@@ -26,6 +27,10 @@ func SetPiece(piece:Piece)->void:
 		pass
 	else:
 		print("same as turn player")
+		pass
+		
+	if IsThisHomePlace:
+		piece.IsInHome = true
 		pass
 	pass
 

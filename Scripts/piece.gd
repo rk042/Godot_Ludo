@@ -7,6 +7,7 @@ var CurrentState:GameManager.PieceStateEnum = GameManager.PieceStateEnum.InLobby
 var StartingPosition: int = 0
 var wayPointManager:WayPointsManager 
 var CurrentWayPoint:WayPoint
+var IsInHome:bool = false
 
 @export var CurrentPlayerColor:GameManager.PlayerColor
 @export var PieceSprite: Sprite2D
@@ -22,6 +23,9 @@ func SetStartPosition(index: int)->void:
 	pass
 
 func SetCurrentPositionAndCheckKill(index: int)->void:
+	if IsInHome:
+		return
+		
 	CurrentPosition = index
 	wayPointManager.SetPieceToThisWayPoint(index,self)
 	pass
@@ -33,6 +37,8 @@ func HasThisPlayerUnlockedPiece()->bool:
 	return CurrentState == GameManager.PieceStateEnum.InLobby
 
 func _input(event: InputEvent) -> void:
+	if IsInHome:
+		return
 	#wait for player dice to roll
 	if(GameManager.GameCurrentState == GameManager.GameStateEnum.PlayerSelectPiece):
 		var playerClick = event.is_action_pressed("PlayerClick")
@@ -46,6 +52,9 @@ func _input(event: InputEvent) -> void:
 	pass
 
 func AIInput()->void:
+	if IsInHome:
+		return
+		
 	if CurrentWayPoint!=null:
 		CurrentWayPoint.RemoveMyRef(self)
 		pass
@@ -54,7 +63,7 @@ func AIInput()->void:
 	pass
 
 func PlayAnimation()-> void:
-	if(CurrentState != GameManager.PieceStateEnum.InHouse):
+	if(CurrentState != GameManager.PieceStateEnum.InHouse && !IsInHome):
 		animation_PieceSelect.play("PieceAnimation_Select")
 		pass
 	pass

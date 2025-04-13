@@ -196,6 +196,8 @@ position = Vector2(0, 241)
 
 [node name="57" parent="Green" instance=ExtResource("1_p5fk6")]
 position = Vector2(0, 112)
+isThisSafePlace = true
+IsThisHomePlace = true
 
 [node name="Yellow" type="Node2D" parent="."]
 
@@ -216,6 +218,8 @@ position = Vector2(-239, 1)
 
 [node name="57" parent="Yellow" instance=ExtResource("1_p5fk6")]
 position = Vector2(-126, 1)
+isThisSafePlace = true
+IsThisHomePlace = true
 
 [node name="Blue" type="Node2D" parent="."]
 
@@ -236,6 +240,8 @@ position = Vector2(0, -240)
 
 [node name="57" parent="Blue" instance=ExtResource("1_p5fk6")]
 position = Vector2(0, -116)
+isThisSafePlace = true
+IsThisHomePlace = true
 
 [node name="Red" type="Node2D" parent="."]
 
@@ -256,3 +262,5 @@ position = Vector2(244, 2)
 
 [node name="57" parent="Red" instance=ExtResource("1_p5fk6")]
 position = Vector2(122, 2)
+isThisSafePlace = true
+IsThisHomePlace = true

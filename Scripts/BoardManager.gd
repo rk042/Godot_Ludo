@@ -87,21 +87,28 @@ func MovePieces(value: int, moveThisPiece: Piece) -> void:
 	
 	#store update value based on current position otherwise piece start moving from 0 each time.
 	value+=moveThisPiece.GetCurrentPosition()
-	
-	if value>=56:
-		value = 56
+	print("after value increase ",value)
+	if value>=57:
+		value = 57
 		pass
-	
+	print("after after value increase ",value)
 	#update game state other wise use can click on piece or dice and game will brack
 	GameManager.UpdateGameCurrentState(GameManager.GameStateEnum.Null)
 	
 	#move piece step by step 1 second for 1 step
 	for i in range(moveThisPiece.GetCurrentPosition(),value):
+		print(i)
 		moveThisPiece.position = way_points.GetPositionOfThisPoint(i,moveThisPiece.CurrentPlayerColor)
 		await get_tree().create_timer(1).timeout
-		
-	#update current piece value to current position so next time we get frash value which we use in value
-	moveThisPiece.SetCurrentPositionAndCheckKill(value)
+	
+	if value == 57:
+		#update current piece value to current position so next time we get frash value which we use in value
+		moveThisPiece.SetCurrentPositionAndCheckKill(56)
+		pass
+	else:
+		#update current piece value to current position so next time we get frash value which we use in value
+		moveThisPiece.SetCurrentPositionAndCheckKill(value)
+		pass
 	
 	if (hasKill):
 		await OnHasKill
@@ -135,8 +142,6 @@ func MovePiecesToHome(value: int, moveThisPiece: Piece) -> void:
 	pass
 
 
-
-
 func UpdatePlayerTurn() -> void:
 	print("Update player turn......")
 	currentPlayerTurnIndex+=1
@@ -159,7 +164,20 @@ func UpdatePlayerTurn() -> void:
 		3:
 			currentPlayerColor = GameManager.PlayerColor.Red
 			pass
-
+	
+	print("color is ",currentPlayerColor)
+	
+	if piecesManager.IsGameOver():
+		print("is game over!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
+		return
+	
+	var pieceGroup = piecesManager.GetPieceGroupBasedOnType(currentPlayerColor)
+	
+	if pieceGroup!=null && pieceGroup.HasThisPlayerCompleted() == true:
+		print("update player turn again because ",currentPlayerColor," has completed game")
+		UpdatePlayerTurn()
+		return
+		
 	#play place animation to suggest use it's your turn to roll dice
 	PlayPlaceAnimation()
 	pass

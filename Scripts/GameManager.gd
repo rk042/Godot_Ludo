@@ -1,6 +1,6 @@
 extends Node
 
-enum GameStateEnum {Null,PlayerCanRollDice,PlayerSelectPiece}
+enum GameStateEnum {Null,PlayerCanRollDice,PlayerSelectPiece,GameOver}
 enum PieceStateEnum {InLobby,InWayPoint,InHouse}
 enum PlayerColor {Green,Yellow,Blue,Red}
 

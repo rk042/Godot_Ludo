@@ -19,7 +19,7 @@ piecesManager = NodePath("../../Pieces")
 
 [node name="DiceRoot" parent="Dice" instance=ExtResource("6_bx5hx")]
 position = Vector2(0, 1172)
-IsTestRun = true
+IsAutoDiceRoll = false
 
 [node name="WayPointsManager" parent="." instance=ExtResource("7_rw8h0")]
 
