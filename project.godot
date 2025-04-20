@@ -19,6 +19,11 @@ config/features=PackedStringArray("4.3", "Mobile")
 
 GameManager="*res://Scripts/GameManager.gd"
 
+[display]
+
+window/size/viewport_width=960
+window/size/viewport_height=540
+
 [dotnet]
 
 project/assembly_name="Godot_Project"
